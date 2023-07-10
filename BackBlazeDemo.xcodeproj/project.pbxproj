@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		979F80492A5C270100E3B152 /* BackBlazeDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80482A5C270100E3B152 /* BackBlazeDemoApp.swift */; };
-		979F804B2A5C270100E3B152 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F804A2A5C270100E3B152 /* ContentView.swift */; };
+		979F80492A5C270100E3B152 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80482A5C270100E3B152 /* Main.swift */; };
 		979F804D2A5C270400E3B152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804C2A5C270400E3B152 /* Assets.xcassets */; };
 		979F80502A5C270400E3B152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804F2A5C270400E3B152 /* Preview Assets.xcassets */; };
 		979F805A2A5C270400E3B152 /* BackBlazeDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80592A5C270400E3B152 /* BackBlazeDemoTests.swift */; };
 		979F80642A5C270400E3B152 /* BackBlazeDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80632A5C270400E3B152 /* BackBlazeDemoUITests.swift */; };
 		979F80662A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80652A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift */; };
+		979F80732A5C272800E3B152 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80722A5C272800E3B152 /* AppView.swift */; };
+		979F80762A5C277200E3B152 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80752A5C277200E3B152 /* ComposableArchitecture */; };
+		979F80792A5C279D00E3B152 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80782A5C279D00E3B152 /* Tagged */; };
+		979F807B2A5C3E0F00E3B152 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F807A2A5C3E0F00E3B152 /* Model.swift */; };
+		979F807D2A5C3E5A00E3B152 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F807C2A5C3E5A00E3B152 /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +39,7 @@
 
 /* Begin PBXFileReference section */
 		979F80452A5C270100E3B152 /* BackBlazeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackBlazeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		979F80482A5C270100E3B152 /* BackBlazeDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoApp.swift; sourceTree = "<group>"; };
-		979F804A2A5C270100E3B152 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		979F80482A5C270100E3B152 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		979F804C2A5C270400E3B152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		979F804F2A5C270400E3B152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		979F80552A5C270400E3B152 /* BackBlazeDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +47,9 @@
 		979F805F2A5C270400E3B152 /* BackBlazeDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		979F80632A5C270400E3B152 /* BackBlazeDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoUITests.swift; sourceTree = "<group>"; };
 		979F80652A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		979F80722A5C272800E3B152 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		979F807A2A5C3E0F00E3B152 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		979F807C2A5C3E5A00E3B152 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				979F80792A5C279D00E3B152 /* Tagged in Frameworks */,
+				979F80762A5C277200E3B152 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +102,10 @@
 		979F80472A5C270100E3B152 /* BackBlazeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				979F80482A5C270100E3B152 /* BackBlazeDemoApp.swift */,
-				979F804A2A5C270100E3B152 /* ContentView.swift */,
+				979F80482A5C270100E3B152 /* Main.swift */,
+				979F80722A5C272800E3B152 /* AppView.swift */,
+				979F807C2A5C3E5A00E3B152 /* Todo.swift */,
+				979F807A2A5C3E0F00E3B152 /* Model.swift */,
 				979F804C2A5C270400E3B152 /* Assets.xcassets */,
 				979F804E2A5C270400E3B152 /* Preview Content */,
 			);
@@ -143,6 +153,10 @@
 			dependencies = (
 			);
 			name = BackBlazeDemo;
+			packageProductDependencies = (
+				979F80752A5C277200E3B152 /* ComposableArchitecture */,
+				979F80782A5C279D00E3B152 /* Tagged */,
+			);
 			productName = BackBlazeDemo;
 			productReference = 979F80452A5C270100E3B152 /* BackBlazeDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +229,10 @@
 				Base,
 			);
 			mainGroup = 979F803C2A5C270100E3B152;
+			packageReferences = (
+				979F80742A5C277200E3B152 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				979F80772A5C279D00E3B152 /* XCRemoteSwiftPackageReference "swift-tagged" */,
+			);
 			productRefGroup = 979F80462A5C270100E3B152 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				979F804B2A5C270100E3B152 /* ContentView.swift in Sources */,
-				979F80492A5C270100E3B152 /* BackBlazeDemoApp.swift in Sources */,
+				979F807B2A5C3E0F00E3B152 /* Model.swift in Sources */,
+				979F80732A5C272800E3B152 /* AppView.swift in Sources */,
+				979F80492A5C270100E3B152 /* Main.swift in Sources */,
+				979F807D2A5C3E5A00E3B152 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +603,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		979F80742A5C277200E3B152 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.55.0;
+			};
+		};
+		979F80772A5C279D00E3B152 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-tagged.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		979F80752A5C277200E3B152 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 979F80742A5C277200E3B152 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		979F80782A5C279D00E3B152 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 979F80772A5C279D00E3B152 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 979F803D2A5C270100E3B152 /* Project object */;
 }
