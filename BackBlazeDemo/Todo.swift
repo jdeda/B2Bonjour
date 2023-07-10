@@ -25,8 +25,7 @@ struct TodoView: View {
           .autocapitalization(.none)
       }
       .strikethrough(viewStore.todo.isComplete)
-      .foregroundColor(viewStore.todo.isComplete ? .secondary : .primary)
-      .foregroundColor(viewStore.todo.description.isEmpty ? .secondary : .primary)
+      .foregroundColor((viewStore.todo.isComplete || viewStore.todo.description.isEmpty) ? .secondary : .primary)
       .swipeActions {
         Button(role: .destructive) {
           viewStore.send(.delegate(.swipedToDelete))
