@@ -17,7 +17,10 @@ struct TodoView: View {
             .accentColor(.primary)
         }
         Spacer()
-        TextField("...", text: viewStore.binding(\.$todo.description))
+        TextField("untitled todo", text: viewStore.binding(
+          get: \.todo.description,
+          send: { .descriptionEdited($0) }
+        ))
           .autocorrectionDisabled(true)
           .autocapitalization(.none)
       }
@@ -40,23 +43,27 @@ struct TodoReducer: ReducerProtocol {
     typealias ID = Tagged<Self, UUID>
     
     let id: ID
-    @BindingState var todo: Todo
+    var todo: Todo
   }
   
-  enum Action: Equatable, BindableAction {
+  enum Action: Equatable {
     case isCompleteToggled
-    case binding(BindingAction<State>)
+    case descriptionEdited(String)
     case delegate(DelegateAction)
   }
   
   var body: some ReducerProtocolOf<Self> {
-    BindingReducer()
     Reduce { state, action in
       switch action {
       case .isCompleteToggled:
         state.todo.isComplete.toggle()
         return .none
-      case .binding, .delegate:
+        
+      case let .descriptionEdited(description):
+        state.todo.description = description
+        return .none
+        
+      case .delegate:
         return .none
       }
     }

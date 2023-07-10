@@ -8,10 +8,7 @@ struct BackBlazeDemoApp: App {
         initialState: .init(todos: .init(uniqueElements: Todo.mockTodos.map {
           .init(id: .init(), todo: $0)
         })),
-        reducer: AppReducer.init,
-        withDependencies: {
-          $0.uuid = .incrementing
-        }
+        reducer: AppReducer.init
       ))
     }
   }

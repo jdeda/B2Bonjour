@@ -14,6 +14,16 @@ struct AppView: View {
           }
         }
         .navigationTitle("Todos")
+        .toolbar {
+          ToolbarItem(placement: .primaryAction) {
+            Button {
+              viewStore.send(.addButtonTapped, animation: .default)
+            } label: {
+              Image(systemName: "plus")
+            }
+            .accentColor(.primary)
+          }
+        }
       }
     }
   }
@@ -26,6 +36,7 @@ struct AppReducer: ReducerProtocol {
   }
   
   enum Action: Equatable {
+    case addButtonTapped
     case todo(TodoReducer.State.ID, TodoReducer.Action)
   }
   
@@ -34,6 +45,10 @@ struct AppReducer: ReducerProtocol {
   var body: some ReducerProtocolOf<Self> {
     Reduce { state, action in
       switch action {
+      case .addButtonTapped:
+        state.todos.append(.init(id: .init(rawValue: uuid()), todo: .init(id: .init())))
+        return .none
+        
       case let .todo(id, action):
         switch (/TodoReducer.Action.delegate).extract(from: action) {
         case .swipedToDelete:
@@ -57,10 +72,7 @@ struct AppView_Previews: PreviewProvider {
       initialState: .init(todos: .init(uniqueElements: Todo.mockTodos.map {
         .init(id: .init(), todo: $0)
       })),
-      reducer: AppReducer.init,
-      withDependencies: {
-        $0.uuid = .incrementing
-      }
+      reducer: AppReducer.init
     ))
   }
 }
