@@ -24,12 +24,11 @@ struct TodoView: View {
       .strikethrough(viewStore.todo.isComplete)
       .foregroundColor(viewStore.todo.isComplete ? .secondary : .primary)
       .swipeActions {
-        Button {
+        Button(role: .destructive) {
           viewStore.send(.delegate(.swipedToDelete))
         } label: {
           Image(systemName: "trash")
         }
-        .tint(.red)
       }
     }
   }
