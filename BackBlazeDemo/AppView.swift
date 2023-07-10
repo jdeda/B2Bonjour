@@ -15,11 +15,31 @@ struct AppView: View {
         }
         .navigationTitle("Todos")
         .toolbar {
-          ToolbarItem(placement: .primaryAction) {
+          ToolbarItemGroup(placement: .bottomBar) {
+            Spacer()
             Button {
               viewStore.send(.addButtonTapped, animation: .default)
             } label: {
               Image(systemName: "plus")
+            }
+            .accentColor(.primary)
+            
+          }
+          ToolbarItem(placement: .primaryAction) {
+            Menu {
+              Button {
+                viewStore.send(.saveButtonTapped, animation: .default)
+              } label: {
+                Label("Save", systemImage: "checkmark.icloud")
+              }
+              Button {
+                viewStore.send(.refreshButtonTapped, animation: .default)
+              } label: {
+                Label("Refresh", systemImage: "arrow.clockwise.icloud")
+                
+              }
+            } label: {
+              Image(systemName: "ellipsis.circle")
             }
             .accentColor(.primary)
           }
@@ -37,6 +57,8 @@ struct AppReducer: ReducerProtocol {
   
   enum Action: Equatable {
     case addButtonTapped
+    case saveButtonTapped
+    case refreshButtonTapped
     case todo(TodoReducer.State.ID, TodoReducer.Action)
   }
   
@@ -47,6 +69,12 @@ struct AppReducer: ReducerProtocol {
       switch action {
       case .addButtonTapped:
         state.todos.append(.init(id: .init(rawValue: uuid()), todo: .init(id: .init())))
+        return .none
+        
+      case .saveButtonTapped:
+        return .none
+        
+      case .refreshButtonTapped:
         return .none
         
       case let .todo(id, action):

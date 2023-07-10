@@ -12,11 +12,11 @@ struct Todo: Identifiable, Equatable, Codable {
 
 extension Todo {
   static let mockTodos: IdentifiedArrayOf<Todo> = [
-    .init(id: .init(), description: "wakeup", isComplete: true),
-    .init(id: .init(), description: "homework", isComplete: false),
-    .init(id: .init(), description: "play videogames", isComplete: true),
-    .init(id: .init(), description: "do keto", isComplete: false),
-    .init(id: .init(), description: "go to bed", isComplete: false)
+    .init(id: .init(), description: "Wakeup", isComplete: true),
+    .init(id: .init(), description: "Homework", isComplete: false),
+    .init(id: .init(), description: "Play Videogames", isComplete: true),
+    .init(id: .init(), description: "Do Keto", isComplete: false),
+    .init(id: .init(), description: "Go to Bed", isComplete: false)
   ]
   
   static let mockTodo: Todo = .init(

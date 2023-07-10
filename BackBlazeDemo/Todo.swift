@@ -17,7 +17,7 @@ struct TodoView: View {
             .accentColor(.primary)
         }
         Spacer()
-        TextField("untitled todo", text: viewStore.binding(
+        TextField("Untitled Todo", text: viewStore.binding(
           get: \.todo.description,
           send: { .descriptionEdited($0) }
         ))
