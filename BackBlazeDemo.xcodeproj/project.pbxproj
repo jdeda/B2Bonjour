@@ -13,11 +13,10 @@
 		979F805A2A5C270400E3B152 /* BackBlazeDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80592A5C270400E3B152 /* BackBlazeDemoTests.swift */; };
 		979F80642A5C270400E3B152 /* BackBlazeDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80632A5C270400E3B152 /* BackBlazeDemoUITests.swift */; };
 		979F80662A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80652A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift */; };
-		979F80732A5C272800E3B152 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80722A5C272800E3B152 /* AppView.swift */; };
 		979F80762A5C277200E3B152 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80752A5C277200E3B152 /* ComposableArchitecture */; };
 		979F80792A5C279D00E3B152 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80782A5C279D00E3B152 /* Tagged */; };
-		979F807B2A5C3E0F00E3B152 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F807A2A5C3E0F00E3B152 /* Model.swift */; };
-		979F807D2A5C3E5A00E3B152 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F807C2A5C3E5A00E3B152 /* Todo.swift */; };
+		97E7A7A62A5F03CF004C1FB5 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7A7A52A5F03CF004C1FB5 /* AppView.swift */; };
+		97F019432A5F08F900264922 /* B2Api in Frameworks */ = {isa = PBXBuildFile; productRef = 97F019422A5F08F900264922 /* B2Api */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +46,8 @@
 		979F805F2A5C270400E3B152 /* BackBlazeDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		979F80632A5C270400E3B152 /* BackBlazeDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoUITests.swift; sourceTree = "<group>"; };
 		979F80652A5C270400E3B152 /* BackBlazeDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		979F80722A5C272800E3B152 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		979F807A2A5C3E0F00E3B152 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		979F807C2A5C3E5A00E3B152 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		97E7A7A52A5F03CF004C1FB5 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		97E7A7B72A5F0538004C1FB5 /* B2Api */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = B2Api; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F019432A5F08F900264922 /* B2Api in Frameworks */,
 				979F80792A5C279D00E3B152 /* Tagged in Frameworks */,
 				979F80762A5C277200E3B152 /* ComposableArchitecture in Frameworks */,
 			);
@@ -82,10 +81,12 @@
 		979F803C2A5C270100E3B152 = {
 			isa = PBXGroup;
 			children = (
+				97E7A7B62A5F0538004C1FB5 /* Packages */,
 				979F80472A5C270100E3B152 /* BackBlazeDemo */,
 				979F80582A5C270400E3B152 /* BackBlazeDemoTests */,
 				979F80622A5C270400E3B152 /* BackBlazeDemoUITests */,
 				979F80462A5C270100E3B152 /* Products */,
+				97F019412A5F08F900264922 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				979F80482A5C270100E3B152 /* Main.swift */,
-				979F80722A5C272800E3B152 /* AppView.swift */,
-				979F807C2A5C3E5A00E3B152 /* Todo.swift */,
-				979F807A2A5C3E0F00E3B152 /* Model.swift */,
+				97E7A7A52A5F03CF004C1FB5 /* AppView.swift */,
 				979F804C2A5C270400E3B152 /* Assets.xcassets */,
 				979F804E2A5C270400E3B152 /* Preview Content */,
 			);
@@ -137,6 +136,21 @@
 			path = BackBlazeDemoUITests;
 			sourceTree = "<group>";
 		};
+		97E7A7B62A5F0538004C1FB5 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				97E7A7B72A5F0538004C1FB5 /* B2Api */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		97F019412A5F08F900264922 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +170,7 @@
 			packageProductDependencies = (
 				979F80752A5C277200E3B152 /* ComposableArchitecture */,
 				979F80782A5C279D00E3B152 /* Tagged */,
+				97F019422A5F08F900264922 /* B2Api */,
 			);
 			productName = BackBlazeDemo;
 			productReference = 979F80452A5C270100E3B152 /* BackBlazeDemo.app */;
@@ -275,10 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				979F807B2A5C3E0F00E3B152 /* Model.swift in Sources */,
-				979F80732A5C272800E3B152 /* AppView.swift in Sources */,
+				97E7A7A62A5F03CF004C1FB5 /* AppView.swift in Sources */,
 				979F80492A5C270100E3B152 /* Main.swift in Sources */,
-				979F807D2A5C3E5A00E3B152 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +646,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 979F80772A5C279D00E3B152 /* XCRemoteSwiftPackageReference "swift-tagged" */;
 			productName = Tagged;
+		};
+		97F019422A5F08F900264922 /* B2Api */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = B2Api;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

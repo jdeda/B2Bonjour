@@ -7,44 +7,7 @@ struct AppView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationStack {
-        List {
-          ForEachStore(store.scope(state: \.todos, action: AppReducer.Action.todo)) { childStore in
-            TodoView(store: childStore)
-          }
-        }
-        .navigationTitle("Todos")
-        .toolbar {
-          ToolbarItemGroup(placement: .bottomBar) {
-            Spacer()
-            Button {
-              viewStore.send(.addButtonTapped, animation: .default)
-            } label: {
-              Image(systemName: "plus")
-            }
-            .accentColor(.primary)
-            
-          }
-          ToolbarItem(placement: .primaryAction) {
-            Menu {
-              Button {
-                viewStore.send(.saveButtonTapped, animation: .default)
-              } label: {
-                Label("Save", systemImage: "checkmark.icloud")
-              }
-              Button {
-                viewStore.send(.refreshButtonTapped, animation: .default)
-              } label: {
-                Label("Refresh", systemImage: "arrow.clockwise.icloud")
-                
-              }
-            } label: {
-              Image(systemName: "ellipsis.circle")
-            }
-            .accentColor(.primary)
-          }
-        }
-      }
+      Text("AppView")
     }
   }
 }
@@ -52,43 +15,18 @@ struct AppView: View {
 // MARK: - Reducer
 struct AppReducer: ReducerProtocol {
   struct State: Equatable {
-    var todos: IdentifiedArrayOf<TodoReducer.State>
+    
   }
   
   enum Action: Equatable {
-    case addButtonTapped
-    case saveButtonTapped
-    case refreshButtonTapped
-    case todo(TodoReducer.State.ID, TodoReducer.Action)
+    
   }
-  
-  @Dependency(\.uuid) var uuid
   
   var body: some ReducerProtocolOf<Self> {
     Reduce { state, action in
       switch action {
-      case .addButtonTapped:
-        state.todos.append(.init(id: .init(rawValue: uuid()), todo: .init(id: .init())))
-        return .none
         
-      case .saveButtonTapped:
-        return .none
-        
-      case .refreshButtonTapped:
-        return .none
-        
-      case let .todo(id, action):
-        switch (/TodoReducer.Action.delegate).extract(from: action) {
-        case .swipedToDelete:
-          state.todos.remove(id: id)
-          return .none
-        case .none:
-          return .none
-        }
       }
-    }
-    .forEach(\.todos, action: /Action.todo) {
-      TodoReducer()
     }
   }
 }
@@ -97,9 +35,7 @@ struct AppReducer: ReducerProtocol {
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
     AppView(store: .init(
-      initialState: .init(todos: .init(uniqueElements: Todo.mockTodos.map {
-        .init(id: .init(), todo: $0)
-      })),
+      initialState: .init(),
       reducer: AppReducer.init
     ))
   }
