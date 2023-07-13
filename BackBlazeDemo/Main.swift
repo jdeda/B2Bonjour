@@ -6,7 +6,7 @@ struct BackBlazeDemoApp: App {
   var body: some Scene {
     WindowGroup {
       AppView(store: .init(
-        initialState: .init(),
+        initialState: .login(.init()),
         reducer: AppReducer.init
       ))
     }

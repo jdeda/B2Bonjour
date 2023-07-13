@@ -1,6 +1,5 @@
 import SwiftUI
 import ComposableArchitecture
-import B2Api
 
 // MARK: - View
 struct AppView: View {
@@ -8,54 +7,17 @@ struct AppView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationStack {
-        VStack(alignment: .leading) {
-          Rectangle()
-            .fill(.clear)
-            .frame(height: 100)
-          Text("Welcome Back")
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundColor(.red)
-            .font(.largeTitle)
-            .padding([.bottom])
-          
-          Text("Sign In")
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .foregroundColor(.primary)
-            .font(.title)
-          
-          TextField("ApplicationKeyID", text: viewStore.binding(\.$applicationKeyID))
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(10)
-            .background(
-              RoundedRectangle(cornerRadius: 10)
-                .stroke(.secondary, lineWidth: 1)
-            )
-            .padding([.horizontal], 1)
-          
-          TextField("ApplicationKey", text: viewStore.binding(\.$applicationKey))
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(10)
-            .background(
-              RoundedRectangle(cornerRadius: 10)
-                .stroke(.secondary, lineWidth: 1)
-            )
-            .padding([.horizontal], 1)
-          
-          Button {
-            viewStore.send(.loginButtonTapped)
-          } label: {
-            Text("Login")
-              .frame(maxWidth: .infinity, alignment: .center)
-          }
-          .tint(.red)
-          .buttonStyle(.borderedProminent)
-          .buttonBorderShape(.roundedRectangle(radius: 25))
-          .frame(maxWidth: .infinity, alignment: .leading)
-          Spacer()
-        }
-        .frame(maxWidth: 220)
-        .alert(store: store.scope(state: \.$alert, action: AppReducer.Action.alert))
+      SwitchStore(store) {
+        CaseLet(
+          state: /AppReducer.State.login,
+          action: AppReducer.Action.login,
+          then: LoginView.init
+        )
+        CaseLet(
+          state: /AppReducer.State.storage,
+          action: AppReducer.Action.storage,
+          then: StorageView.init
+        )
       }
     }
   }
@@ -63,46 +25,38 @@ struct AppView: View {
 
 // MARK: - Reducer
 struct AppReducer: ReducerProtocol {
-  struct State: Equatable {
-    @BindingState var applicationKeyID: String = ""
-    @BindingState var applicationKey: String = ""
-    @PresentationState var alert: AlertState<Never>?
+  enum State: Equatable {
+    case login(LoginReducer.State)
+    case storage(StorageReducer.State)
   }
   
-  enum Action: Equatable, BindableAction {
-    case binding(BindingAction<State>)
-    case loginButtonTapped
-    case alert(PresentationAction<Never>)
+  enum Action: Equatable {
+    case login(LoginReducer.Action)
+    case storage(StorageReducer.Action)
   }
-  
-  @Dependency(\.b2Api) var b2Api
   
   var body: some ReducerProtocolOf<Self> {
-    BindingReducer()
     Reduce { state, action in
       switch action {
-      case .binding:
-        return .none
+      case let .login(action):
+        let action = (/LoginReducer.Action.delegate).extract(from: action)
+        switch action {
+        case .none:
+          return .none
+        case .loginSuccessfull:
+          state = .storage(.init())
+          return .none
+        }
         
-      case .loginButtonTapped:
-        state.alert = AlertState(
-          title: {
-            TextState("Invalid Parameters")
-          },
-          actions: {
-            ButtonState {
-              TextState("Dismiss")
-            }
-          },
-          message: {
-            TextState("Please use a valid pair of an application key ID and an application key.")
-          }
-        )
-        return .none
-        
-      case .alert:
+      case let .storage(action):
         return .none
       }
+    }
+    .ifCaseLet(/State.login, action: /Action.login) { // What happens if this state doesn't exist ATM?
+      LoginReducer()
+    }
+    .ifCaseLet(/State.storage, action: /Action.storage) { // What happens if this state doesn't exist ATM?
+      StorageReducer()
     }
   }
 }
@@ -110,10 +64,12 @@ struct AppReducer: ReducerProtocol {
 // MARK: - Preview
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
-    AppView(store: .init(
-      initialState: .init(),
-      reducer: AppReducer.init
-    ))
+    NavigationStack {
+      AppView(store: .init(
+        initialState: .login(.init()),
+        reducer: AppReducer.init
+      ))
+    }
   }
 }
 
