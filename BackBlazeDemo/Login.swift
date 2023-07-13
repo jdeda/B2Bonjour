@@ -65,11 +65,15 @@ struct LoginReducer: ReducerProtocol {
     @BindingState var applicationKeyID: String = ""
     @BindingState var applicationKey: String = ""
     @PresentationState var alert: AlertState<Never>?
+    // TODO: Probably put a timeout after 5x failures or something
+    // maybe only notify once they've failed 3 times start the countdown
   }
   
   enum Action: Equatable, BindableAction {
     case binding(BindingAction<State>)
     case loginButtonTapped
+    case loginFailure
+    case loginSuccess
     case alert(PresentationAction<Never>)
     case delegate(DelegateAction)
   }
@@ -84,26 +88,16 @@ struct LoginReducer: ReducerProtocol {
         return .none
         
       case .loginButtonTapped:
-        let loginIsSuccessful = true
-        if loginIsSuccessful {
-          return .send(.delegate(.loginSuccessfull))
-        }
-        else {
-          // TODO: Move this into an extension
-          state.alert = AlertState(
-            title: {
-              TextState("Invalid Parameters")
-            },
-            actions: {
-              ButtonState {
-                TextState("Dismiss")
-              }
-            },
-            message: {
-              TextState("Please use a valid pair of an application key ID and an application key.")
-            }
-          )
-          return .none
+        return .run { [state = state] send in
+          guard let _ = try? await b2Api.authorizeAccount(.init(
+            applicationKeyId: state.applicationKeyID,
+            applicationKey: state.applicationKey
+          ))
+          else {
+            await send(.loginFailure)
+            return
+          }
+          await send(.loginSuccess) // well you probably want to take that response...
         }
         
       case .alert:
@@ -111,6 +105,26 @@ struct LoginReducer: ReducerProtocol {
         
       case .delegate:
         return .none
+        
+      case .loginFailure:
+        // TODO: Move this into an extension
+        state.alert = AlertState(
+          title: {
+            TextState("Invalid Parameters")
+          },
+          actions: {
+            ButtonState {
+              TextState("Dismiss")
+            }
+          },
+          message: {
+            TextState("Please use a valid pair of an application key ID and an application key.")
+          }
+        )
+        return .none
+        
+      case .loginSuccess:
+        return .send(.delegate(.loginSuccessfull))
       }
     }
   }

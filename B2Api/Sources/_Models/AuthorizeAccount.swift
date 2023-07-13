@@ -11,8 +11,13 @@ import Foundation
 // Container for all the types related to the B2ApiClient.authorizeAccount API.
 public struct AuthorizeAccount {
     public struct Request: Codable {
-      let applicationKeyId: String
-      let applicationKey: String
+      public let applicationKeyId: String
+      public let applicationKey: String
+      
+      public init(applicationKeyId: String, applicationKey: String) {
+        self.applicationKeyId = applicationKeyId
+        self.applicationKey = applicationKey
+      }
 
       func authHeader() -> [String: String]? {
         guard let data = String(applicationKeyId + ":" + applicationKey).data(using: .utf8)
