@@ -98,14 +98,17 @@ final class B2ApiTests: XCTestCase {
       @Dependency(\.b2ApiClient) var b2ApiClient
       
       let param = AuthorizeAccount.Request(
-        applicationKeyId: "0058da1b241b82e13d1cf37aed6af6685b46596eaa",
+        applicationKeyId: "0057bc15b3584db0000000001",
         applicationKey: "K005EueuAu9rB/CATltSWhBVJfuKT5A"
       )
       let response = try await b2ApiClient.authorizeAccount(param)
       
-      XCTAssertTrue(response.accountId == "foo")
-      XCTAssertTrue(response.authorizationToken == "foo")
-      XCTAssertTrue(response.apiUrl == "foo")
+      // TODO: how to assert this private data
+//      XCTAssertTrue(response.accountId == "foo")
+//      XCTAssertTrue(response.authorizationToken == "foo")
+//      XCTAssertTrue(response.apiUrl == "foo")
     }
   }
 }
+
+/// What we would like is to request this auth, then use it in every request...

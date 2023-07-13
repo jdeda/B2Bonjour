@@ -13,14 +13,15 @@ public struct AuthorizeAccount {
     public struct Request: Codable {
       let applicationKeyId: String
       let applicationKey: String
-      
+
       func authHeader() -> [String: String]? {
         guard let data = String(applicationKeyId + ":" + applicationKey).data(using: .utf8)
         else { return nil }
-        return ["Authorization:": String("Basic" + data.base64EncodedString())]
+        return ["Authorization": String("Basic" + data.base64EncodedString())]
       }
     }
     
+  // MARK: - In reality, this is just the Authentication struct in _Models/Authentication.swift
     public struct Response: Codable {
       let accountId: String
       let authorizationToken: String
