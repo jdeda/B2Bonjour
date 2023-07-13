@@ -31,5 +31,11 @@ public struct AuthorizeAccount {
       let accountId: String
       let authorizationToken: String
       let apiUrl: String
+      
+      public init(accountId: String, authorizationToken: String, apiUrl: String) {
+        self.accountId = accountId
+        self.authorizationToken = authorizationToken
+        self.apiUrl = apiUrl
+      }
     }
 }

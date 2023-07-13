@@ -10,7 +10,7 @@
 		979F80492A5C270100E3B152 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80482A5C270100E3B152 /* Main.swift */; };
 		979F804D2A5C270400E3B152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804C2A5C270400E3B152 /* Assets.xcassets */; };
 		979F80502A5C270400E3B152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804F2A5C270400E3B152 /* Preview Assets.xcassets */; };
-		979F805A2A5C270400E3B152 /* BackBlazeDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80592A5C270400E3B152 /* BackBlazeDemoTests.swift */; };
+		979F805A2A5C270400E3B152 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80592A5C270400E3B152 /* LoginTests.swift */; };
 		979F80762A5C277200E3B152 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80752A5C277200E3B152 /* ComposableArchitecture */; };
 		979F80792A5C279D00E3B152 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 979F80782A5C279D00E3B152 /* Tagged */; };
 		97A4B72F2A606A5000328DAF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B72E2A606A5000328DAF /* Login.swift */; };
@@ -43,7 +43,7 @@
 		979F804C2A5C270400E3B152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		979F804F2A5C270400E3B152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		979F80552A5C270400E3B152 /* BackBlazeDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		979F80592A5C270400E3B152 /* BackBlazeDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlazeDemoTests.swift; sourceTree = "<group>"; };
+		979F80592A5C270400E3B152 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		979F805F2A5C270400E3B152 /* BackBlazeDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A4B72E2A606A5000328DAF /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		97A4B7302A606A5A00328DAF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 		979F80582A5C270400E3B152 /* BackBlazeDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				979F80592A5C270400E3B152 /* BackBlazeDemoTests.swift */,
+				979F80592A5C270400E3B152 /* LoginTests.swift */,
 			);
 			path = BackBlazeDemoTests;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				979F805A2A5C270400E3B152 /* BackBlazeDemoTests.swift in Sources */,
+				979F805A2A5C270400E3B152 /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

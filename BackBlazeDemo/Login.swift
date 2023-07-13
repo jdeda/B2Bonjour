@@ -2,6 +2,18 @@ import SwiftUI
 import ComposableArchitecture
 import B2Api
 
+/// There are a couple features one could add here:
+/// 1. textfield focus:
+///    - if user is focused ont he applicationKeyID and submits it when the value is non-empty (trimming whitespaces and newlines,
+///      focus to textfield below)
+/// 2. button disabled unless both textfiields are n on empty trimming whitespaaces and newlines
+/// 3. animated background like backblaze website would be very nice
+/// 4. maybe hidden or even secure textfields because what the user enters is very critical information
+/// 5. Login - timeout after 5x failures or something, maybe only notify once they've failed 3 times start the countdown
+/// 6. Login - timeout, maybe 10,30,60 seconds show an alert timing out.
+/// 7. Login - block anymore than one tap while an action is inflight
+
+
 // MARK: - View
 struct LoginView: View {
   let store: StoreOf<LoginReducer>
@@ -64,9 +76,14 @@ struct LoginReducer: ReducerProtocol {
   struct State: Equatable {
     @BindingState var applicationKeyID: String = ""
     @BindingState var applicationKey: String = ""
-    @PresentationState var alert: AlertState<Never>?
+    @PresentationState var alert: AlertState<AlertAction>?
     // TODO: Probably put a timeout after 5x failures or something
     // maybe only notify once they've failed 3 times start the countdown
+    
+    var loginIsDisabled: Bool {
+      applicationKeyID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+      applicationKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
   }
   
   enum Action: Equatable, BindableAction {
@@ -74,7 +91,7 @@ struct LoginReducer: ReducerProtocol {
     case loginButtonTapped
     case loginFailure
     case loginSuccess
-    case alert(PresentationAction<Never>)
+    case alert(PresentationAction<AlertAction>)
     case delegate(DelegateAction)
   }
   
@@ -97,30 +114,22 @@ struct LoginReducer: ReducerProtocol {
             await send(.loginFailure)
             return
           }
-          await send(.loginSuccess) // well you probably want to take that response...
+          await send(.delegate(.loginSuccessfull)) // well you probably want to take that response...
         }
         
-      case .alert:
+      case let .alert(action):
+        switch action {
+        case .dismiss:
+          state.alert = nil
+          return .none
+        }
         return .none
         
       case .delegate:
         return .none
         
       case .loginFailure:
-        // TODO: Move this into an extension
-        state.alert = AlertState(
-          title: {
-            TextState("Invalid Parameters")
-          },
-          actions: {
-            ButtonState {
-              TextState("Dismiss")
-            }
-          },
-          message: {
-            TextState("Please use a valid pair of an application key ID and an application key.")
-          }
-        )
+        state.alert = .invalidParameters
         return .none
         
       case .loginSuccess:
@@ -131,9 +140,29 @@ struct LoginReducer: ReducerProtocol {
 }
 
 extension LoginReducer {
-  enum DelegateAction {
+  enum DelegateAction: Equatable {
     case loginSuccessfull
   }
+}
+
+extension LoginReducer {
+  enum AlertAction: Equatable { }
+}
+
+extension AlertState where Action == LoginReducer.AlertAction {
+  static let invalidParameters = Self(
+    title: {
+      TextState("Invalid Parameters")
+    },
+    actions: {
+      ButtonState {
+        TextState("Dismiss")
+      }
+    },
+    message: {
+      TextState("Please use a valid pair of an application key ID and an application key.")
+    }
+  )
 }
 
 // MARK: - Preview
@@ -144,6 +173,8 @@ struct LoginView_Previews: PreviewProvider {
         initialState: .init(),
         reducer: LoginReducer.init
       ))
+      // TODO: - you may edit the b2Api.authorizeAccount endpoint preview value
+      // to behave differently if you'd like
     }
   }
 }

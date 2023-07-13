@@ -43,6 +43,18 @@ public struct B2ApiClient {
   public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
   public var authorizeAccount: @Sendable (_ parameter: AuthorizeAccount.Request) async throws -> AuthorizeAccount.Response
   
+//  public init(
+//    listBuckets: @escaping (_: ListBuckets) -> [ListBuckets.Response.Bucket],
+//    listEntriesInDir: @escaping (_: ListEntriesInDir) -> [ListEntriesInDir.Response.File],
+//    listComputers: @escaping (_: ListComputers) -> [ListComputers.Response.Computer],
+//    authorizeAccount: @escaping (_: AuthorizeAccount.Request) -> AuthorizeAccount.Response
+//  ) {
+//    self.listBuckets = listBuckets
+//    self.listEntriesInDir = listEntriesInDir
+//    self.listComputers = listComputers
+//    self.authorizeAccount = authorizeAccount
+//  }
+  
 }
 
 extension DependencyValues {

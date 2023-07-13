@@ -52,10 +52,10 @@ struct AppReducer: ReducerProtocol {
         return .none
       }
     }
-    .ifCaseLet(/State.login, action: /Action.login) { // What happens if this state doesn't exist ATM?
+    .ifCaseLet(/State.login, action: /Action.login) {
       LoginReducer()
     }
-    .ifCaseLet(/State.storage, action: /Action.storage) { // What happens if this state doesn't exist ATM?
+    .ifCaseLet(/State.storage, action: /Action.storage) {
       StorageReducer()
     }
   }
@@ -70,6 +70,8 @@ struct AppView_Previews: PreviewProvider {
         reducer: AppReducer.init
       ))
     }
+    // TODO: login button doesn't work in previews properly,
+    // which may be because of the preview value or something else
   }
 }
 
