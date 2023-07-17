@@ -41,7 +41,15 @@ public struct B2ApiClient {
   public var listBuckets: @Sendable (_ parameter: ListBuckets) async throws -> [ListBuckets.Response.Bucket]
   public var listEntriesInDir: @Sendable (_ parameter: ListEntriesInDir) async throws -> [ListEntriesInDir.Response.File]
   public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
-  public var authorizeAccount: @Sendable (_ parameter: AuthorizeAccount.Request) async throws -> AuthorizeAccount.Response
+
+    /**
+     cdeda@backblaze.com
+     July 17, 1023
+     002d365fdf3dfcc0000000001
+     keyName: BackBlazeDemo
+     applicationKey: K0025cy1RjM8KO8OmbKPOV2mc9cqQnI
+     */
+    public var authorizeAccount: @Sendable (_ parameter: AuthorizeAccount.Request) async throws -> AuthorizeAccount.Response
   
 //  public init(
 //    listBuckets: @escaping (_: ListBuckets) -> [ListBuckets.Response.Bucket],
@@ -189,7 +197,7 @@ extension B2ApiClient: TestDependencyKey {
       return []
     },
     authorizeAccount: { params in
-      return .init(accountId: "TBD", authorizationToken: "TBD", apiUrl: "TBD")
+        return .init(accountId: "TBD", authorizationToken: "TBD", apiUrl: URL.init(fileURLWithPath: NSTemporaryDirectory()))
     }
     
   )

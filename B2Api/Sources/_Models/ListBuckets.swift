@@ -19,7 +19,7 @@ public struct ListBuckets {
         public var buckets: [Bucket] = []
 
         // MARK: - Bucket -
-        public struct Bucket: Codable {
+        public struct Bucket: Codable, Equatable {
             public let accountId: String
             public let bucketName: String
             public let bucketId: String

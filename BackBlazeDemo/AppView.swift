@@ -43,8 +43,9 @@ struct AppReducer: ReducerProtocol {
         switch action {
         case .none:
           return .none
-        case .loginSuccessfull:
-          state = .storage(.init())
+
+        case let .loginSuccessfull(value):
+          state = .storage(.init(authentication: value))
           return .none
         }
         

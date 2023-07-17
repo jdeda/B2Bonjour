@@ -73,6 +73,28 @@
             ReferencedContainer = "container:BackBlazeDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-_applicationKeyID &quot;0057bc15b3584db0000000001&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-applicationKeyID &quot;002d365fdf3dfcc0000000001&quot;"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-_applicationKey &quot;K005EueuAu9rB/CATltSWhBVJfuKT5A&quot; "
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-applicationKey &quot;K0025cy1RjM8KO8OmbKPOV2mc9cqQnI&quot; "
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "-autoLogin true"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

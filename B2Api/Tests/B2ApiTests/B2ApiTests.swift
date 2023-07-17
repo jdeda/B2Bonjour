@@ -102,7 +102,9 @@ final class B2ApiTests: XCTestCase {
         applicationKey: "K005EueuAu9rB/CATltSWhBVJfuKT5A"
       )
       let response = try await b2ApiClient.authorizeAccount(param)
-      
+
+        Log4swift[Self.self].info("response: \(response)")
+
       // TODO: how to assert this private data
 //      XCTAssertTrue(response.accountId == "foo")
 //      XCTAssertTrue(response.authorizationToken == "foo")

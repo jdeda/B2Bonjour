@@ -11,31 +11,35 @@ import Foundation
 // Container for all the types related to the B2ApiClient.authorizeAccount API.
 public struct AuthorizeAccount {
     public struct Request: Codable {
-      public let applicationKeyId: String
-      public let applicationKey: String
-      
-      public init(applicationKeyId: String, applicationKey: String) {
-        self.applicationKeyId = applicationKeyId
-        self.applicationKey = applicationKey
-      }
-
-      func authHeader() -> [String: String]? {
-        guard let data = String(applicationKeyId + ":" + applicationKey).data(using: .utf8)
-        else { return nil }
-        return ["Authorization": String("Basic" + data.base64EncodedString())]
-      }
+        public let applicationKeyId: String
+        public let applicationKey: String
+        
+        public init(applicationKeyId: String, applicationKey: String) {
+            self.applicationKeyId = applicationKeyId
+            self.applicationKey = applicationKey
+        }
+        
+        func authHeader() -> [String: String]? {
+            guard let data = String(applicationKeyId + ":" + applicationKey).data(using: .utf8)
+            else { return nil }
+            return ["Authorization": String("Basic" + data.base64EncodedString())]
+        }
     }
     
-  // MARK: - In reality, this is just the Authentication struct in _Models/Authentication.swift
+    // MARK: - In reality, this is just the Authentication struct in _Models/Authentication.swift
     public struct Response: Codable {
-      let accountId: String
-      let authorizationToken: String
-      let apiUrl: String
-      
-      public init(accountId: String, authorizationToken: String, apiUrl: String) {
-        self.accountId = accountId
-        self.authorizationToken = authorizationToken
-        self.apiUrl = apiUrl
-      }
+        public let accountId: String
+        public let authorizationToken: String
+        public let apiUrl: URL
+        
+        public init(accountId: String, authorizationToken: String, apiUrl: URL) {
+            self.accountId = accountId
+            self.authorizationToken = authorizationToken
+            self.apiUrl = apiUrl
+        }
+
+        public var authentication: Authentication {
+            Authentication.init(apiUrl: apiUrl, accountId: accountId, authToken: authorizationToken)
+        }
     }
 }

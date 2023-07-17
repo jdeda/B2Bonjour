@@ -8,7 +8,9 @@
 
 import Foundation
 
-public struct Authentication {
+public struct Authentication: Equatable {
+    public static let empty = Self.init(apiUrl: URL.init(fileURLWithPath: NSTemporaryDirectory()), accountId: "", authToken: "")
+
     public let apiUrl: URL
     public let accountId: String
     public let authToken: String
