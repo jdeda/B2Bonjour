@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kdeda/idd-log4-swift.git",
       "state" : {
-        "revision" : "de55f45d40e0db14b4a8381fbb20ed0e1adf2a87",
-        "version" : "1.2.3"
+        "revision" : "1c03fd8bd3da719f9c21edb6bffddcdcf6d0b1b7",
+        "version" : "2.0.4"
       }
     },
     {
@@ -79,6 +79,15 @@
       "state" : {
         "revision" : "d01446a78fb768adc9a78cbb6df07767c8ccfc29",
         "version" : "0.8.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "32e8d724467f8fe623624570367e3d50c5638e46",
+        "version" : "1.5.2"
       }
     },
     {

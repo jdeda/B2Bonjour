@@ -50,6 +50,38 @@
             endingLineNumber = "165"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C1687319-2DB8-4AE0-B2CA-81FD627C487E - 6ce46a2b00fc7508"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.LoginReducer.State, BackBlazeDemo.LoginReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.LoginReducer.Action, Swift.Never&gt; in BackBlazeDemo.LoginReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Login.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "2360">
+               </Location>
+               <Location
+                  uuid = "C1687319-2DB8-4AE0-B2CA-81FD627C487E - 6ce46a2b00fc7508"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.LoginReducer.State, BackBlazeDemo.LoginReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.LoginReducer.Action, Swift.Never&gt; in BackBlazeDemo.LoginReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Login.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "2004">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -66,6 +98,38 @@
             endingLineNumber = "45"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "79FDACE4-6E6E-4F75-8FFA-9EF80D61362C - f06d0d82878383b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1456">
+               </Location>
+               <Location
+                  uuid = "79FDACE4-6E6E-4F75-8FFA-9EF80D61362C - f06d0d82878383b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1228">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -82,6 +146,38 @@
             endingLineNumber = "49"
             landmarkName = "body"
             landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "7CA1482F-1DF1-413D-9414-87CF7B4A0F01 - f06d0d828783803d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "2132">
+               </Location>
+               <Location
+                  uuid = "7CA1482F-1DF1-413D-9414-87CF7B4A0F01 - f06d0d828783803d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "1644">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

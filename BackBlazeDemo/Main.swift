@@ -4,14 +4,17 @@ import XCTestDynamicOverlay
 
 @main
 struct BackBlazeDemoApp: App {
-  var body: some Scene {
-    WindowGroup {
-      if !_XCTIsTesting {
-        AppView(store: .init(
-          initialState: .login(.init()),
-          reducer: AppReducer.init
-        ))
-      }
+    init() {
+        Log4swift.configure(appName: "BackBlazeDemoApp")
     }
-  }
+    var body: some Scene {
+        WindowGroup {
+            if !_XCTIsTesting {
+                AppView(store: .init(
+                    initialState: .login(.init()),
+                    reducer: AppReducer.init
+                ))
+            }
+        }
+    }
 }

@@ -79,6 +79,10 @@
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "-standardLog true"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-applicationKeyID &quot;002d365fdf3dfcc0000000001&quot;"
             isEnabled = "YES">
          </CommandLineArgument>
