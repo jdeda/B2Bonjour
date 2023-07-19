@@ -10,6 +10,19 @@ import Foundation
 
 /// Container for all the types related to the B2ApiClient.listEntriesInDir API.
 public struct ListEntriesInDir {
+    
+    // MARK: - Request
+    fileprivate struct Request: Codable {
+        let bucketId: String
+        let startFileName: String?
+        // 10000 is max per request July 2019
+        var maxFileCount: Int = 10000
+        /// The delimiter for B2 virtual directories is "/" by default.
+        /// When delimiter is nil, request returns all files instead of separating them into virtual folders.
+        let delimiter: String?
+        let prefix: String? // the base path
+    }
+    
     // MARK: - Response
     /**
      This is the type that we use to map the json from the server response for this request.
@@ -102,18 +115,8 @@ public struct ListEntriesInDir {
     }
 }
 
-extension ListEntriesInDir {
-    fileprivate struct Request: Codable {
-        let bucketId: String
-        let startFileName: String?
-        // 10000 is max per request July 2019
-        var maxFileCount: Int = 10000
-        /// The delimiter for B2 virtual directories is "/" by default.
-        /// When delimiter is nil, request returns all files instead of separating them into virtual folders.
-        let delimiter: String?
-        let prefix: String? // the base path
-    }
-
+// MARK: - APIModel Conformance
+extension ListEntriesInDir: APIModel {
     func urlRequest() throws -> URLRequest {
         let relativeURL = self.shouldReturnFolders ? "b2api/v2/b2_list_file_versions" : "b2api/v2/b2_list_file_names"
         let absoluteURL = self.auth.apiUrl.appendingPathComponent(relativeURL)

@@ -41,7 +41,7 @@ public struct B2ApiClient {
     public var listBuckets: @Sendable (_ parameter: ListBuckets) async throws -> [ListBuckets.Response.Bucket]
     public var listEntriesInDir: @Sendable (_ parameter: ListEntriesInDir) async throws -> [ListEntriesInDir.Response.File]
     public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
-
+    
     /**
      cdeda@backblaze.com
      July 17, 1023
@@ -49,7 +49,7 @@ public struct B2ApiClient {
      keyName: BackBlazeDemo
      applicationKey: K0025cy1RjM8KO8OmbKPOV2mc9cqQnI
      */
-    public var authorizeAccount: @Sendable (_ parameter: AuthorizeAccount.Request) async throws -> AuthorizeAccount.Response
+    public var authorizeAccount: @Sendable (_ applicationKeyID: String, _ applicationKey: String) async throws -> Authentication
 }
 
 extension DependencyValues {
@@ -78,29 +78,8 @@ extension B2ApiClient: DependencyKey {
             }
         },
         listComputers: { params in
-            func urlRequest() throws -> URLRequest {
-                let relativeURL = "api2/list_b1_computers"
-                let absoluteURL = params.auth.apiUrl.appendingPathComponent(relativeURL)
-                    .appendingQueryItem(name: "user_id", value: params.auth.accountId)
-                    .appendingQueryItem(name: "bz_device_id", value: params.deviceId)
-                    .appendingQueryItem(name: "cluster_num", value: params.clusterNum)
-                
-                // Some POST requests may also want parameters in the url
-                // and can have a nil body
-                
-                var urlRequest = URLRequest(url: absoluteURL)
-                // in seconds
-                urlRequest.timeoutInterval = 10.0
-                urlRequest.httpMethod = "POST"
-                urlRequest.httpBody = nil
-                urlRequest.allHTTPHeaderFields = params.auth.authHeaders()
-                    .appending(["Account-Id": params.auth.accountId])
-                // .appending(NetworkUtilities.defaultBackblazeHeaders)
-                return urlRequest
-            }
-            
             do {
-                let computers = try await urlRequest().fetchResponse([ListComputers.Response.Computer].self)
+                let computers = try await params.urlRequest().fetchResponse([ListComputers.Response.Computer].self)
                 
                 return computers.map {
                     Log4swift[Self.self].info("file: \($0)")
@@ -112,21 +91,19 @@ extension B2ApiClient: DependencyKey {
                 throw error
             }
         },
-        authorizeAccount: { params in
-            func urlRequest() throws -> URLRequest {
+        authorizeAccount: { applicationKeyID, applicationKey in
+            do {
                 // MARK: - Valid URL? https://api002.backblazeb2.com
                 guard let url = URL(string: "https://api002.backblazeb2.com/b2api/v2/b2_authorize_account"),
-                      let authHeader = params.authHeader()
+                      let data = String(applicationKeyID + ":" + applicationKey).data(using: .utf8)
                 else { throw ApiError(status: 400, code: "400", message: "failed to init authorizeAccount URL / headers") }
+                
+                let authHeader = ["Authorization": String("Basic" + data.base64EncodedString())]
                 var urlRequest = URLRequest(url: url)
                 urlRequest.timeoutInterval = 10.0 // in seconds
                 urlRequest.httpMethod = "GET"
                 urlRequest.allHTTPHeaderFields = authHeader.appending(NetworkUtilities.defaultBackblazeHeaders)
-                return urlRequest
-            }
-            
-            do {
-                return try await urlRequest().fetchResponse(AuthorizeAccount.Response.self)
+                return try await urlRequest.fetchResponse(Authentication.self)
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -138,17 +115,21 @@ extension B2ApiClient: DependencyKey {
 
 extension B2ApiClient: TestDependencyKey {
     public static let previewValue = Self(
-        listBuckets: { params in
+        listBuckets: { _ in
             return []
         },
-        listEntriesInDir: { params in
+        listEntriesInDir: { _ in
             return []
         },
-        listComputers: { params in
+        listComputers: { _ in
             return []
         },
-        authorizeAccount: { params in
-            return .init(accountId: "TBD", authorizationToken: "TBD", apiUrl: URL.init(fileURLWithPath: NSTemporaryDirectory()))
+        authorizeAccount: { _, _ in
+            return .init(
+                apiUrl: URL(fileURLWithPath: NSTemporaryDirectory()),
+                accountId: "TBD",
+                authToken: "TBD"
+            )
         }
         
     )

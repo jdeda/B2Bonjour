@@ -8,31 +8,32 @@
 
 import Foundation
 
-public struct Authentication: Equatable {
-    public static let empty = Self.init(apiUrl: URL.init(fileURLWithPath: NSTemporaryDirectory()), accountId: "", authToken: "")
 
-    public let apiUrl: URL
+public struct Authentication: Equatable, Codable {
+    public static let empty = Self.init(apiUrl: URL.init(fileURLWithPath: NSTemporaryDirectory()), accountId: "", authToken: "")
+    
     public let accountId: String
-    public let authToken: String
+    public let authorizationToken: String
+    public let apiUrl: URL
     
     public init(apiUrl: URL, accountId: String, authToken: String) {
         self.apiUrl = apiUrl
         self.accountId = accountId
-        self.authToken = authToken
+        self.authorizationToken = authToken
     }
     
     public func authHeaders() -> [String: String] {
-        let headers = ["Authorization": authToken]
-
-//        #if DEBUG
-//        if B2TestFlag.doTestDownloadCapExceeded {
-//            // Add header before making upload-related API calls.
-//            // This will cause a cap limit failure, allowing you to verify correct behavior of your code.
-//            headers["X-Bz-Test-Mode"] = "force_cap_exceeded"
-//        }
-//        #endif
-
+        let headers = ["Authorization": authorizationToken]
+        
+        //        #if DEBUG
+        //        if B2TestFlag.doTestDownloadCapExceeded {
+        //            // Add header before making upload-related API calls.
+        //            // This will cause a cap limit failure, allowing you to verify correct behavior of your code.
+        //            headers["X-Bz-Test-Mode"] = "force_cap_exceeded"
+        //        }
+        //        #endif
+        
         return headers
     }
-
+    
 }

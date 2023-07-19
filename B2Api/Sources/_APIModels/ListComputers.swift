@@ -10,6 +10,8 @@ import Foundation
 
 /// Container for all the types related to the B2ApiClient.listComputers API.
 public struct ListComputers {
+    
+    // MARK: - Request
     public struct Request: Codable {
         public let accountId: String
     }
@@ -17,7 +19,7 @@ public struct ListComputers {
     // MARK: - Response -
     public struct Response: Codable {
         public var computers: [Computer] = []
-
+        
         // MARK: - Computer -
         public struct Computer: Codable {
             public let displayName, mimeType, volumeID, fullyQualifiedFileName: String
@@ -30,7 +32,7 @@ public struct ListComputers {
             public let hostOS: HostOS
             public let licenseState: LicenseState
             public let hasPrivateEncryption: Int
-
+            
             enum CodingKeys: String, CodingKey {
                 case displayName = "display_name"
                 case mimeType = "mime_type"
@@ -53,11 +55,11 @@ public struct ListComputers {
                 case hasPrivateEncryption = "has_private_encryption"
             }
         }
-
+        
         public enum HostOS: String, Codable {
             case mac = "mac"
         }
-
+        
         public enum LicenseState: String, Codable {
             case paidUnlimited = "paid_unlimited"
         }
@@ -67,10 +69,34 @@ public struct ListComputers {
     public let auth: Authentication
     public let clusterNum: String
     public let deviceId: String
-
+    
     public init(auth: Authentication, clusterNum: String, deviceId: String) {
         self.auth = auth
         self.clusterNum = clusterNum
         self.deviceId = deviceId
+    }
+}
+
+// MARK: - APIModel Conformance
+extension ListComputers: APIModel {
+    func urlRequest() throws -> URLRequest {
+        let relativeURL = "api2/list_b1_computers"
+        let absoluteURL = self.auth.apiUrl.appendingPathComponent(relativeURL)
+            .appendingQueryItem(name: "user_id", value: self.auth.accountId)
+            .appendingQueryItem(name: "bz_device_id", value: self.deviceId)
+            .appendingQueryItem(name: "cluster_num", value: self.clusterNum)
+        
+        // Some POST requests may also want parameters in the url
+        // and can have a nil body
+        
+        var urlRequest = URLRequest(url: absoluteURL)
+        // in seconds
+        urlRequest.timeoutInterval = 10.0
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = nil
+        urlRequest.allHTTPHeaderFields = self.auth.authHeaders()
+            .appending(["Account-Id": self.auth.accountId])
+        // .appending(NetworkUtilities.defaultBackblazeHeaders)
+        return urlRequest
     }
 }

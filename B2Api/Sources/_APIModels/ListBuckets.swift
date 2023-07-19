@@ -29,7 +29,14 @@ public struct ListBuckets {
             // trigger decoding error foo: String
         }
     }
-
+    
+    // MARK: - Request
+    /**
+     This is the type that we have created that will become the body of the POST URL request.
+     */
+    fileprivate struct Request: Codable {
+        let accountId: String
+    }
     /**
      The following are dependencies that we need to get this API done
      So we keep copies of them here
@@ -44,14 +51,8 @@ public struct ListBuckets {
     }
 }
 
-extension ListBuckets {
-    /**
-     This is the type that we have created that will become the body of the POST URL request.
-     */
-    fileprivate struct Request: Codable {
-        let accountId: String
-    }
-
+// MARK: - APIModel Conformance
+extension ListBuckets: APIModel {
     func urlRequest() throws -> URLRequest {
         let relativeURL = "b2api/v2/b2_list_buckets"
         let absoluteURL = self.auth.apiUrl.appendingPathComponent(relativeURL)
