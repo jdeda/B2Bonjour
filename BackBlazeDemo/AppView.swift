@@ -68,7 +68,10 @@ struct AppView_Previews: PreviewProvider {
     NavigationStack {
       AppView(store: .init(
         initialState: .login(.init()),
-        reducer: AppReducer.init
+        reducer: AppReducer.init,
+        withDependencies: {
+            $0.b2ApiClient = .liveValue
+        }
       ))
     }
     // TODO: login button doesn't work in previews properly,
