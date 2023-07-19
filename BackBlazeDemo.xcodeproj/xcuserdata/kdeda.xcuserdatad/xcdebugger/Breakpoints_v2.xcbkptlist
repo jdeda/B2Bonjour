@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "115A7C4C-34A9-44D2-BD40-AF51620EEBD4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B2Api/Tests/B2ApiTests/B2ApiTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "testAuthorizeAccount()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C1687319-2DB8-4AE0-B2CA-81FD627C487E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -176,6 +160,54 @@
                   startingLineNumber = "49"
                   endingLineNumber = "49"
                   offsetFromSymbolStart = "1644">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "testListComputers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E - 18761acffdeb0163"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (B2Api.ListComputers.Response.Computer) -&gt; B2Api.ListComputers.Response.Computer in closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListComputers() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E - 91cf165c3a5ad22d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListComputers() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "564">
                </Location>
             </Locations>
          </BreakpointContent>
