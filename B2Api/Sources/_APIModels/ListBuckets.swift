@@ -27,6 +27,13 @@ public struct ListBuckets {
             public let bucketId: String
             public let bucketType: String
             // trigger decoding error foo: String
+            
+            public init(accountId: String, bucketName: String, bucketId: String, bucketType: String) {
+                self.accountId = accountId
+                self.bucketName = bucketName
+                self.bucketId = bucketId
+                self.bucketType = bucketType
+            }
         }
     }
     
