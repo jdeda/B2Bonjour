@@ -129,16 +129,11 @@ struct LoginReducer: ReducerProtocol {
                 return state.autoLogin ? .send(.loginButtonTapped) : .none
 
             case .loginButtonTapped:
-                let request = AuthorizeAccount.Request(
-                    applicationKeyId: state.applicationKeyID,
-                    applicationKey: state.applicationKey
-                )
                 state.autoLogin = false
                 state.inFlight = true
-                return .task {
+                return .task { [appKeyID = state.applicationKeyID, appKey = state.applicationKey] in
                     await .authorizeAccountDidEnd(TaskResult {
-                        let response = try await b2Api.authorizeAccount(request)
-                        return response.authentication
+                        try await b2Api.authorizeAccount( appKeyID, appKey)
                     })
                 }
 
@@ -148,18 +143,17 @@ struct LoginReducer: ReducerProtocol {
                     state.alert = nil
                     return .none
                 }
-                return .none
 
             case .delegate:
                 return .none
 
             case let .authorizeAccountDidEnd(.success(value)):
-                Log4swift[Self.self].info("authorizeAccountDidEnd: \(value)")
+                Log4swift[Self.self].info("authorizeAccountDidEnd.success: \(value)")
                 state.inFlight = true
                 return .send(.delegate(.loginSuccessfull(value)))
 
             case let .authorizeAccountDidEnd(.failure(error)):
-                Log4swift[Self.self].info("authorizeAccountDidEnd: '\(error)'")
+                Log4swift[Self.self].info("authorizeAccountDidEnd.failure: '\(error)'")
                 state.inFlight = true
                 state.alert = .invalidParameters
                 return .none

@@ -3,4 +3,84 @@
    uuid = "3604E98D-E38B-4A52-9171-42F038E3B7AA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "testAuthorizeAccount()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - f5b31be3d65d013d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "275">
+               </Location>
+               <Location
+                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 1282501ec0740ffb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 65ef2df4644753f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "161">
+               </Location>
+               <Location
+                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 5e73f9510e40cf3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "113">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

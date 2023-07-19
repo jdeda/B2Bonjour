@@ -5,7 +5,13 @@ import XCTestDynamicOverlay
 @main
 struct BackBlazeDemoApp: App {
     init() {
-        Log4swift.configure(appName: "BackBlazeDemoApp")
+        LoggingSystem.bootstrap { label in
+            ConsoleHandler(label: label)
+        }
+        //
+        //  TODO: kdeda
+        // fix this for ios apps ...
+        //        Log4swift.configure(appName: "BackBlazeDemoApp")
     }
     var body: some Scene {
         WindowGroup {
