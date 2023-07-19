@@ -41,7 +41,7 @@ public struct B2ApiClient {
     public var listBuckets: @Sendable (_ parameter: ListBuckets) async throws -> [ListBuckets.Response.Bucket]
     public var listEntriesInDir: @Sendable (_ parameter: ListEntriesInDir) async throws -> [ListEntriesInDir.Response.File]
     public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
-    
+
     /**
      cdeda@backblaze.com
      July 17, 1023
@@ -50,19 +50,6 @@ public struct B2ApiClient {
      applicationKey: K0025cy1RjM8KO8OmbKPOV2mc9cqQnI
      */
     public var authorizeAccount: @Sendable (_ parameter: AuthorizeAccount.Request) async throws -> AuthorizeAccount.Response
-    
-    //  public init(
-    //    listBuckets: @escaping (_: ListBuckets) -> [ListBuckets.Response.Bucket],
-    //    listEntriesInDir: @escaping (_: ListEntriesInDir) -> [ListEntriesInDir.Response.File],
-    //    listComputers: @escaping (_: ListComputers) -> [ListComputers.Response.Computer],
-    //    authorizeAccount: @escaping (_: AuthorizeAccount.Request) -> AuthorizeAccount.Response
-    //  ) {
-    //    self.listBuckets = listBuckets
-    //    self.listEntriesInDir = listEntriesInDir
-    //    self.listComputers = listComputers
-    //    self.authorizeAccount = authorizeAccount
-    //  }
-    
 }
 
 extension DependencyValues {
@@ -75,52 +62,16 @@ extension DependencyValues {
 extension B2ApiClient: DependencyKey {
     public static let liveValue = Self(
         listBuckets: { params in
-            func urlRequest() throws -> URLRequest {
-                let relativeURL = "b2api/v2/b2_list_buckets"
-                let absoluteURL = params.auth.apiUrl.appendingPathComponent(relativeURL)
-                
-                var urlRequest = URLRequest(url: absoluteURL)
-                // in seconds
-                urlRequest.timeoutInterval = 10.0
-                urlRequest.httpMethod = "POST"
-                urlRequest.httpBody = {
-                    let request = ListBuckets.Request(accountId: params.auth.accountId)
-                    return try? JSONEncoder().encode(request)
-                }()
-                urlRequest.allHTTPHeaderFields = params.auth.authHeaders()
-                    .appending(NetworkUtilities.defaultBackblazeHeaders)
-                return urlRequest
-            }
-            
             do {
-                return try await urlRequest().fetchResponse(ListBuckets.Response.self).buckets
+                return try await params.urlRequest().fetchResponse(ListBuckets.Response.self).buckets
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
             }
         },
         listEntriesInDir: { params in
-            func urlRequest() throws -> URLRequest {
-                let relativeURL = params.shouldReturnFolders ? "b2api/v2/b2_list_file_versions" : "b2api/v2/b2_list_file_names"
-                let absoluteURL = params.auth.apiUrl.appendingPathComponent(relativeURL)
-                
-                var urlRequest = URLRequest(url: absoluteURL)
-                // in seconds
-                // long timeout for slow loading trees
-                urlRequest.timeoutInterval = 600.0
-                urlRequest.httpMethod = "POST"
-                urlRequest.httpBody = {
-                    let delimiter = params.shouldReturnFolders ? "/" : nil
-                    let request = ListEntriesInDir.Request(bucketId: params.bucketId, startFileName: params.startFileName, delimiter: delimiter, prefix: params.startFileName)
-                    return try? JSONEncoder().encode(request)
-                }()
-                urlRequest.allHTTPHeaderFields = params.auth.authHeaders()
-                    .appending(NetworkUtilities.defaultBackblazeHeaders)
-                return urlRequest
-            }
-            
             do {
-                return try await urlRequest().fetchResponse(ListEntriesInDir.Response.self).files
+                return try await params.urlRequest().fetchResponse(ListEntriesInDir.Response.self).files
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error

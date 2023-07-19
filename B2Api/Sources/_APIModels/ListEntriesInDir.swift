@@ -10,18 +10,10 @@ import Foundation
 
 /// Container for all the types related to the B2ApiClient.listEntriesInDir API.
 public struct ListEntriesInDir {
-    public struct Request: Codable {
-        public let bucketId: String
-        public let startFileName: String?
-        // 10000 is max per request July 2019
-        public var maxFileCount: Int = 10000
-        /// The delimiter for B2 virtual directories is "/" by default.
-        /// When delimiter is nil, request returns all files instead of separating them into virtual folders.
-        public let delimiter: String?
-        public let prefix: String? // the base path
-    }
-    
     // MARK: - Response
+    /**
+     This is the type that we use to map the json from the server response for this request.
+     */
     public struct Response: Codable {
         public let files: [File]
         public let nextFileID: String?
@@ -107,5 +99,37 @@ public struct ListEntriesInDir {
         self.startFileName = startFileName
         self.shouldShowFileVersions = shouldShowFileVersions
         self.shouldReturnFolders = shouldReturnFolders
+    }
+}
+
+extension ListEntriesInDir {
+    fileprivate struct Request: Codable {
+        let bucketId: String
+        let startFileName: String?
+        // 10000 is max per request July 2019
+        var maxFileCount: Int = 10000
+        /// The delimiter for B2 virtual directories is "/" by default.
+        /// When delimiter is nil, request returns all files instead of separating them into virtual folders.
+        let delimiter: String?
+        let prefix: String? // the base path
+    }
+
+    func urlRequest() throws -> URLRequest {
+        let relativeURL = self.shouldReturnFolders ? "b2api/v2/b2_list_file_versions" : "b2api/v2/b2_list_file_names"
+        let absoluteURL = self.auth.apiUrl.appendingPathComponent(relativeURL)
+
+        var urlRequest = URLRequest(url: absoluteURL)
+        // in seconds
+        // long timeout for slow loading trees
+        urlRequest.timeoutInterval = 600.0
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = {
+            let delimiter = self.shouldReturnFolders ? "/" : nil
+            let request = Request(bucketId: self.bucketId, startFileName: self.startFileName, delimiter: delimiter, prefix: self.startFileName)
+            return try? JSONEncoder().encode(request)
+        }()
+        urlRequest.allHTTPHeaderFields = self.auth.authHeaders()
+            .appending(NetworkUtilities.defaultBackblazeHeaders)
+        return urlRequest
     }
 }

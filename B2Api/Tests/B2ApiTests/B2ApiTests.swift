@@ -31,6 +31,7 @@ final class B2ApiTests: XCTestCase {
             @Dependency(\.b2ApiClient) var b2ApiClient
 
             let param = ListBuckets(auth: Self.auth)
+
             let buckets = try await b2ApiClient.listBuckets(param)
                 .map { bucket in
                     // feel free to compose more work
@@ -77,6 +78,8 @@ final class B2ApiTests: XCTestCase {
             @Dependency(\.b2ApiClient) var b2ApiClient
 
             let param = ListComputers(auth: Self.auth, clusterNum: "002", deviceId: "ios_device")
+
+
             let computers = try await b2ApiClient.listComputers(param)
                 .map { computer in
                     Log4swift[Self.self].info("computer: \(computer)")

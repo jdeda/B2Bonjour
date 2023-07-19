@@ -10,14 +10,6 @@ import Foundation
 
 /// Container for all the types related to the B2ApiClient.listBuckets API.
 public struct ListBuckets {
-    // MARK: - Request -
-    /**
-     This is the type that we have created that will become the body of the POST URL request.
-     */
-    public struct Request: Codable {
-        public let accountId: String
-    }
-    
     // MARK: - Response -
     /**
      This is the type that we use to map the json from the server response for this request.
@@ -49,5 +41,31 @@ public struct ListBuckets {
     
     public init(auth: Authentication) {
         self.auth = auth
+    }
+}
+
+extension ListBuckets {
+    /**
+     This is the type that we have created that will become the body of the POST URL request.
+     */
+    fileprivate struct Request: Codable {
+        let accountId: String
+    }
+
+    func urlRequest() throws -> URLRequest {
+        let relativeURL = "b2api/v2/b2_list_buckets"
+        let absoluteURL = self.auth.apiUrl.appendingPathComponent(relativeURL)
+
+        var urlRequest = URLRequest(url: absoluteURL)
+        // in seconds
+        urlRequest.timeoutInterval = 10.0
+        urlRequest.httpMethod = "POST"
+        urlRequest.httpBody = {
+            let request = Request(accountId: self.auth.accountId)
+            return try? JSONEncoder().encode(request)
+        }()
+        urlRequest.allHTTPHeaderFields = self.auth.authHeaders()
+            .appending(NetworkUtilities.defaultBackblazeHeaders)
+        return urlRequest
     }
 }
