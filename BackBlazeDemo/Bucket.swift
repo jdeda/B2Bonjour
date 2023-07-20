@@ -9,20 +9,45 @@ struct BucketView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            VStack {
-                HStack {
-                    Image(systemName: "externaldrive.fill")
-                        .font(.title)
-                    Text(viewStore.bucket.bucketName)
-                        .frame(alignment: .leading)
-                        .multilineTextAlignment(.leading)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .font(.some(.footnote))
-                        .fontWeight(.some(.bold))
-                        .foregroundColor(.secondary.opacity(0.50))
+            Form {
+                DisclosureGroup {
+                    Section {
+                        Text(viewStore.bucket.bucketName)
+                    } header: {
+                        Text("Bucket Name")
+                    }
+                    Section {
+                        Text(viewStore.bucket.bucketId)
+                    } header: {
+                        Text("Bucket ID")
+                    }
+
+                    Section {
+                        Text(viewStore.bucket.bucketType)
+                    } header: {
+                        Text("Bucket Type")
+                    }
+
+                    Section {
+                        Text(viewStore.bucket.accountId)
+                    } header: {
+                        Text("Account ID")
+                    }
+                } label: {
+                    Text("Metadata")
                 }
+
+                Section {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.secondary)
+                        .frame(width: 200, height: 200)
+                } header: {
+                    Text("ok")
+                }
+
             }
+            
+            .navigationTitle("Bucket")
         }
     }
 }
@@ -40,6 +65,7 @@ struct BucketReducer: ReducerProtocol {
         
     }
     
+    
     var body: some ReducerProtocolOf<Self> {
         Reduce { state, action in
             switch action {
@@ -52,18 +78,20 @@ struct BucketReducer: ReducerProtocol {
 // MARK: - Preview
 struct BucketView_Previews: PreviewProvider {
     static var previews: some View {
-        BucketView(store: .init(
-            initialState: .init(
-                id: .init(),
-                bucket: .init(
-                    accountId: "123",
-                    bucketName:"foo",
-                    bucketId: "123foo",
-                    bucketType: "footype"
-                )
-            ),
-            reducer: BucketReducer.init
-        ))
+        NavigationStack {
+            BucketView(store: .init(
+                initialState: .init(
+                    id: .init(),
+                    bucket: .init(
+                        accountId: "123",
+                        bucketName:"foo",
+                        bucketId: "123foo",
+                        bucketType: "footype"
+                    )
+                ),
+                reducer: BucketReducer.init
+            ))
+        }
     }
 }
 

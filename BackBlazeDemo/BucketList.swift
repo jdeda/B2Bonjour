@@ -10,16 +10,40 @@ struct BucketListView: View {
         WithViewStore(store) { viewStore in
             NavigationStack {
                 List {
-                    ForEachStore(store.scope(
-                        state: \.buckets,
-                        action: BucketListReducer.Action.bucket
-                    )) { childStore in
-                        BucketView(store: childStore)
+                    ForEach(viewStore.buckets, id: \.bucketId) { bucket in
+                        VStack {
+                            HStack {
+                                Image(systemName: "externaldrive.fill")
+                                    .font(.title)
+                                Text(bucket.bucketName)
+                                    .frame(alignment: .leading)
+                                    .multilineTextAlignment(.leading)
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.some(.footnote))
+                                    .fontWeight(.some(.bold))
+                                    .foregroundColor(.secondary.opacity(0.50))
+                            }
+                        }
+                        .onTapGesture {
+                            viewStore.send(.rowTapped(bucket))
+                        }
                     }
+                    
                 }
                 .navigationTitle("Buckets")
                 .onAppear {
                     viewStore.send(.onAppear)
+                }
+                .navigationDestination(
+                    store: store.scope(
+                        state: \.$destination,
+                        action: BucketListReducer.Action.destination
+                    ),
+                    state: /BucketListReducer.DestinationReducer.State.bucket,
+                    action: BucketListReducer.DestinationReducer.Action.bucket
+                ) { childStore in
+                    BucketView(store: childStore)
                 }
             }
         }
@@ -30,15 +54,20 @@ struct BucketListView: View {
 struct BucketListReducer: ReducerProtocol {
     struct State: Equatable {
         var authentication: Authentication
-        var buckets:  IdentifiedArrayOf<BucketReducer.State> = []
+        var buckets: [ListBuckets.Response.Bucket] = []
+        
+        @PresentationState var destination: DestinationReducer.State?
     }
     
     enum Action: Equatable {
         case onAppear
         case listBucketsDidEnd(TaskResult<[ListBuckets.Response.Bucket]>)
-        case bucket(BucketReducer.State.ID, BucketReducer.Action)
+        case rowTapped(ListBuckets.Response.Bucket)
+        case destination(PresentationAction<DestinationReducer.Action>)
     }
+    
     @Dependency(\.b2Api) var b2Api
+    @Dependency(\.uuid) var uuid
     
     var body: some ReducerProtocolOf<Self> {
         Reduce { state, action in
@@ -53,9 +82,11 @@ struct BucketListReducer: ReducerProtocol {
                 
             case let .listBucketsDidEnd(.success(value)):
                 Log4swift[Self.self].info("listBucketsDidEnd: \(value)")
-                state.buckets = .init(uniqueElements: value.map({
-                    .init(id: .init(), bucket: $0)
-                }))
+                state.buckets = value
+                state.destination = .bucket(.init(
+                    id: .init(rawValue: uuid()),
+                    bucket: value.first!
+                ))
                 return .none
                 
             case let .listBucketsDidEnd(.failure(error)):
@@ -63,12 +94,38 @@ struct BucketListReducer: ReducerProtocol {
                 state.inFlight = false
                 return .none
                 
-            case let .bucket(id, action):
+            case let .rowTapped(bucket):
+                state.destination = .bucket(.init(
+                    id: .init(rawValue: uuid()),
+                    bucket: bucket
+                ))
+                return .none
+                
+            case let .destination(action):
                 return .none
             }
         }
-        .forEach(\.buckets, action: /Action.bucket) {
-            BucketReducer()
+        .ifLet(\.$destination, action: /Action.destination) {
+            DestinationReducer()
+        }
+    }
+}
+
+// MARK: - Destination
+extension BucketListReducer {
+    struct DestinationReducer: ReducerProtocol {
+        enum State: Equatable {
+            case bucket(BucketReducer.State)
+        }
+        
+        enum Action: Equatable {
+            case bucket(BucketReducer.Action)
+        }
+        
+        var body: some ReducerProtocolOf<Self> {
+            Scope(state: /State.bucket, action: /Action.bucket) {
+                BucketReducer()
+            }
         }
     }
 }
