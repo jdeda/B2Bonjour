@@ -13,7 +13,8 @@ import Log4swift
 /// 5. Login - timeout after 5x failures or something, maybe only notify once they've failed 3 times start the countdown
 /// 6. Login - timeout, maybe 10,30,60 seconds show an alert timing out.
 /// 7. Login - block anymore than one tap while an action is inflight
-
+/// 8. Login - you might get different types of login errors, so you should display the right
+/// error accordingly, such as invalid key/keyid, wifi, etc
 
 // MARK: - View
 struct LoginView: View {
@@ -25,6 +26,7 @@ struct LoginView: View {
                 Rectangle()
                     .fill(.clear)
                     .frame(height: 100)
+                
                 Text("Welcome Back")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.red)
@@ -58,7 +60,7 @@ struct LoginView: View {
                     viewStore.send(.loginButtonTapped)
                 } label: {
                     Text(viewStore.inFlight ? "" : "Login")
-                            .frame(maxWidth: .infinity, alignment: .center)
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
                 .disabled(viewStore.loginIsDisabled)
                 .tint(.red)
@@ -66,20 +68,20 @@ struct LoginView: View {
                 .buttonBorderShape(.roundedRectangle(radius: 25))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .overlay(
-                        ProgressView()
-                            .scaleEffect(1.0, anchor: .center)
-                            .frame(width: 4, height: 4)
-                            .progressViewStyle(.circular)
-                            .opacity(viewStore.inFlight ? 1.0 : 0.0)
+                    ProgressView()
+                        .scaleEffect(1.0, anchor: .center)
+                        .frame(width: 4, height: 4)
+                        .progressViewStyle(.circular)
+                        .opacity(viewStore.inFlight ? 1.0 : 0.0)
                 )
                 
                 Spacer()
             }
             .frame(maxWidth: 220)
             .alert(store: store.scope(state: \.$alert, action: LoginReducer.Action.alert))
-                        .onAppear {
-                            viewStore.send(.onAppear)
-                        }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
         }
     }
 }
@@ -133,7 +135,8 @@ struct LoginReducer: ReducerProtocol {
                 state.autoLogin = false
                 state.inFlight = true
                 return .task { [appKeyID = state.applicationKeyID, appKey = state.applicationKey] in
-                    await .authorizeAccountDidEnd(TaskResult {
+                    //                    try await Task.sleep(for: .seconds(2))
+                    return await .authorizeAccountDidEnd(TaskResult {
                         try await b2Api.authorizeAccount( appKeyID, appKey)
                     })
                 }

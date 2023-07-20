@@ -3,15 +3,18 @@ import ComposableArchitecture
 import B2Api
 
 // MARK: - View
-struct StorageView: View {
-    let store: StoreOf<StorageReducer>
+struct BucketListView: View {
+    let store: StoreOf<BucketListReducer>
     
     var body: some View {
         WithViewStore(store) { viewStore in
             NavigationStack {
                 List {
-                    ForEach(viewStore.buckets, id: \.bucketId) { bucket in
-                        Text(bucket.bucketName)
+                    ForEachStore(store.scope(
+                        state: \.buckets,
+                        action: BucketListReducer.Action.bucket
+                    )) { childStore in
+                        BucketView(store: childStore)
                     }
                 }
                 .navigationTitle("Buckets")
@@ -24,15 +27,16 @@ struct StorageView: View {
 }
 
 // MARK: - Reducer
-struct StorageReducer: ReducerProtocol {
+struct BucketListReducer: ReducerProtocol {
     struct State: Equatable {
         var authentication: Authentication
-        var buckets: [ListBuckets.Response.Bucket] = []
+        var buckets:  IdentifiedArrayOf<BucketReducer.State> = []
     }
     
     enum Action: Equatable {
         case onAppear
         case listBucketsDidEnd(TaskResult<[ListBuckets.Response.Bucket]>)
+        case bucket(BucketReducer.State.ID, BucketReducer.Action)
     }
     @Dependency(\.b2Api) var b2Api
     
@@ -40,7 +44,7 @@ struct StorageReducer: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                let request = ListBuckets.init(auth: state.authentication)
+                let request = ListBuckets(auth: state.authentication)
                 return .task {
                     await .listBucketsDidEnd(TaskResult {
                         try await b2ApiClient.listBuckets(request)
@@ -49,20 +53,28 @@ struct StorageReducer: ReducerProtocol {
                 
             case let .listBucketsDidEnd(.success(value)):
                 Log4swift[Self.self].info("listBucketsDidEnd: \(value)")
-                state.buckets = value
+                state.buckets = .init(uniqueElements: value.map({
+                    .init(id: .init(), bucket: $0)
+                }))
                 return .none
                 
             case let .listBucketsDidEnd(.failure(error)):
                 Log4swift[Self.self].info("listBucketsDidEnd: '\(error)'")
                 state.inFlight = false
                 return .none
+                
+            case let .bucket(id, action):
+                return .none
             }
+        }
+        .forEach(\.buckets, action: /Action.bucket) {
+            BucketReducer()
         }
     }
 }
 
 // MARK: - Preview
-struct StorageView_Previews: PreviewProvider {
+struct BucketListView_Previews: PreviewProvider {
     static let auth = Authentication(
         apiUrl : URL(string: "https://api005.backblazeb2.com")!,
         accountId : "7bc15b3584db",
@@ -70,9 +82,10 @@ struct StorageView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        StorageView(store: .init(
+        BucketListView(store: .init(
             initialState: .init(authentication: auth),
-            reducer: StorageReducer.init
+            reducer: BucketListReducer.init,
+            withDependencies: { $0.b2ApiClient = .liveValue }
             //            ,
             //            withDependencies: {
             //                $0.b2Api = .liveValue
