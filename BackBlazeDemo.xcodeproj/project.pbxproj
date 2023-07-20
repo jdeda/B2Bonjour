@@ -16,7 +16,6 @@
 		97A4B72F2A606A5000328DAF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B72E2A606A5000328DAF /* Login.swift */; };
 		97A4B7312A606A5A00328DAF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B7302A606A5A00328DAF /* AppView.swift */; };
 		97A4B7332A606BD400328DAF /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B7322A606BD400328DAF /* Storage.swift */; };
-		97BDB52A2A6051DC003D2612 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BDB5292A6051DC003D2612 /* Dependencies.swift */; };
 		97F019432A5F08F900264922 /* B2Api in Frameworks */ = {isa = PBXBuildFile; productRef = 97F019422A5F08F900264922 /* B2Api */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +47,6 @@
 		97A4B72E2A606A5000328DAF /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		97A4B7302A606A5A00328DAF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		97A4B7322A606BD400328DAF /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		97BDB5292A6051DC003D2612 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		97E7A7B72A5F0538004C1FB5 /* B2Api */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = B2Api; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				979F80482A5C270100E3B152 /* Main.swift */,
-				97BDB5292A6051DC003D2612 /* Dependencies.swift */,
 				97A4B7302A606A5A00328DAF /* AppView.swift */,
 				97A4B72E2A606A5000328DAF /* Login.swift */,
 				97A4B7322A606BD400328DAF /* Storage.swift */,
@@ -287,7 +284,6 @@
 			files = (
 				97A4B7312A606A5A00328DAF /* AppView.swift in Sources */,
 				97A4B72F2A606A5000328DAF /* Login.swift in Sources */,
-				97BDB52A2A6051DC003D2612 /* Dependencies.swift in Sources */,
 				979F80492A5C270100E3B152 /* Main.swift in Sources */,
 				97A4B7332A606BD400328DAF /* Storage.swift in Sources */,
 			);

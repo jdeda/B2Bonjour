@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
             endingLineNumber = "165"
-            landmarkName = "body"
-            landmarkType = "24">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "C1687319-2DB8-4AE0-B2CA-81FD627C487E - 6ce46a2b00fc7508"
@@ -78,8 +78,8 @@
             filePath = "BackBlazeDemo/Storage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -113,6 +113,21 @@
                   endingLineNumber = "45"
                   offsetFromSymbolStart = "1228">
                </Location>
+               <Location
+                  uuid = "79FDACE4-6E6E-4F75-8FFA-9EF80D61362C - f06d0d828783801e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "1292">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,8 +141,8 @@
             filePath = "BackBlazeDemo/Storage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -161,53 +176,192 @@
                   endingLineNumber = "49"
                   offsetFromSymbolStart = "1644">
                </Location>
+               <Location
+                  uuid = "7CA1482F-1DF1-413D-9414-87CF7B4A0F01 - f06d0d82878380a2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (inout BackBlazeDemo.StorageReducer.State, BackBlazeDemo.StorageReducer.Action) -&gt; ComposableArchitecture.EffectPublisher&lt;BackBlazeDemo.StorageReducer.Action, Swift.Never&gt; in BackBlazeDemo.StorageReducer.body.getter : some"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/BackBlazeDemo/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1708">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E"
+            uuid = "961874D9-6F55-427C-B2F5-E064F2C230F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/_Caches/JSONEncoder+Caching.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "archive(_:_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "89BD3B30-9590-4DB8-BE79-1778DB37CD21"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "B2Api/Tests/B2ApiTests/B2ApiTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "testListComputers()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "testListBuckets()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E - 18761acffdeb0163"
+                  uuid = "89BD3B30-9590-4DB8-BE79-1778DB37CD21 - e32a769d80aa93ed"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (B2Api.ListComputers.Response.Computer) -&gt; B2Api.ListComputers.Response.Computer in closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListComputers() async throws -&gt; ()"
+                  symbolName = "(1) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListBuckets() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "68">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "340">
                </Location>
                <Location
-                  uuid = "97903F12-BAF2-4F5A-A5D6-B0B7AE582B1E - 91cf165c3a5ad22d"
+                  uuid = "89BD3B30-9590-4DB8-BE79-1778DB37CD21 - 294b9b965183d227"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListComputers() async throws -&gt; ()"
+                  symbolName = "(2) await resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListBuckets() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "87"
-                  endingLineNumber = "87"
-                  offsetFromSymbolStart = "564">
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "89BD3B30-9590-4DB8-BE79-1778DB37CD21 - 29a2719bfc815763"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListBuckets() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "89BD3B30-9590-4DB8-BE79-1778DB37CD21 - 34e67f14eeea36a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testListBuckets() async throws -&gt; ()"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/B2ApiClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "liveValue"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 38386e86545d4464"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "132">
+               </Location>
+               <Location
+                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 23586ac5cfec0d1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 665d855c8b868862"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 31a068f02f9aea63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "BackBlazeDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>

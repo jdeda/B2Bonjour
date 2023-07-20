@@ -63,7 +63,9 @@ extension B2ApiClient: DependencyKey {
     public static let liveValue = Self(
         listBuckets: { params in
             do {
-                return try await params.urlRequest().fetchResponse(ListBuckets.Response.self).buckets
+                return try await params.urlRequest().fetchResponse(ListBuckets.Response.self)
+                    .buckets
+                    .archive("listBuckets")
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -85,7 +87,6 @@ extension B2ApiClient: DependencyKey {
                     Log4swift[Self.self].info("file: \($0)")
                     return $0
                 }
-                return []
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -103,7 +104,9 @@ extension B2ApiClient: DependencyKey {
                 urlRequest.timeoutInterval = 10.0 // in seconds
                 urlRequest.httpMethod = "GET"
                 urlRequest.allHTTPHeaderFields = authHeader.appending(NetworkUtilities.defaultBackblazeHeaders)
+
                 return try await urlRequest.fetchResponse(Authentication.self)
+                    .archive("authorizeAccount")
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -116,7 +119,8 @@ extension B2ApiClient: DependencyKey {
 extension B2ApiClient: TestDependencyKey {
     public static let previewValue = Self(
         listBuckets: { _ in
-            return []
+            try await Task.sleep(nanoseconds: NSEC_PER_MSEC * 1500)
+            return [ListBuckets.Response.Bucket].unarchive("listBuckets")
         },
         listEntriesInDir: { _ in
             return []
@@ -125,11 +129,7 @@ extension B2ApiClient: TestDependencyKey {
             return []
         },
         authorizeAccount: { _, _ in
-            return .init(
-                apiUrl: URL(fileURLWithPath: NSTemporaryDirectory()),
-                accountId: "TBD",
-                authToken: "TBD"
-            )
+            Authentication.unarchive("authorizeAccount")
         }
         
     )

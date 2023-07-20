@@ -6,7 +6,8 @@ import XCTest
 
 @MainActor
 final class B2ApiTests: XCTestCase {
-    private static var auth = Authentication.empty
+    private static var auth = Authentication.unarchive("authorizeAccount")
+
     var logInit = false
     
     override func setUp() async throws {
@@ -107,7 +108,7 @@ final class B2ApiTests: XCTestCase {
             )
             
             Log4swift[Self.self].info("response: \(response)")
-            Self.auth = response
+            Self.auth = try response
         }
     }
 }
