@@ -66,7 +66,7 @@ struct BucketListReducer: ReducerProtocol {
         case destination(PresentationAction<DestinationReducer.Action>)
     }
     
-    @Dependency(\.b2Api) var b2Api
+    @Dependency(\.b2ApiClient) var b2ApiClient
     @Dependency(\.uuid) var uuid
     
     var body: some ReducerProtocolOf<Self> {
@@ -91,7 +91,6 @@ struct BucketListReducer: ReducerProtocol {
                 
             case let .listBucketsDidEnd(.failure(error)):
                 Log4swift[Self.self].info("listBucketsDidEnd: '\(error)'")
-                state.inFlight = false
                 return .none
                 
             case let .rowTapped(bucket):

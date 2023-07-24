@@ -119,7 +119,7 @@ struct LoginReducer: ReducerProtocol {
         case delegate(DelegateAction)
     }
     
-    @Dependency(\.b2Api) var b2Api
+    @Dependency(\.b2ApiClient) var b2ApiClient
     
     var body: some ReducerProtocolOf<Self> {
         BindingReducer()
@@ -135,9 +135,8 @@ struct LoginReducer: ReducerProtocol {
                 state.autoLogin = false
                 state.inFlight = true
                 return .task { [appKeyID = state.applicationKeyID, appKey = state.applicationKey] in
-                    //                    try await Task.sleep(for: .seconds(2))
-                    return await .authorizeAccountDidEnd(TaskResult {
-                        try await b2Api.authorizeAccount( appKeyID, appKey)
+                    await .authorizeAccountDidEnd(TaskResult {
+                        try await b2ApiClient.authorizeAccount( appKeyID, appKey)
                     })
                 }
                 
@@ -201,7 +200,7 @@ struct LoginView_Previews: PreviewProvider {
                 initialState: .init(),
                 reducer: LoginReducer.init,
                 withDependencies: {
-                    $0.b2Api = .liveValue
+                    $0.b2ApiClient = .liveValue
                 }
             ))
             // TODO: - you may edit the b2ApiClient.authorizeAccount endpoint preview value
