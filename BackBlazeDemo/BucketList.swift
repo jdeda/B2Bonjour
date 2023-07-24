@@ -32,7 +32,7 @@ struct BucketListView: View {
                     
                 }
                 .navigationTitle("Buckets")
-                .onAppear {
+                .task {
                     viewStore.send(.onAppear)
                 }
                 .navigationDestination(
@@ -73,6 +73,7 @@ struct BucketListReducer: ReducerProtocol {
         Reduce { state, action in
             switch action {
             case .onAppear:
+                guard state.buckets.isEmpty else { return .none }
                 let request = ListBuckets(auth: state.authentication)
                 return .task {
                     await .listBucketsDidEnd(TaskResult {
@@ -83,10 +84,6 @@ struct BucketListReducer: ReducerProtocol {
             case let .listBucketsDidEnd(.success(value)):
                 Log4swift[Self.self].info("listBucketsDidEnd: \(value)")
                 state.buckets = value
-                state.destination = .bucket(.init(
-                    id: .init(rawValue: uuid()),
-                    bucket: value.first!
-                ))
                 return .none
                 
             case let .listBucketsDidEnd(.failure(error)):
@@ -141,22 +138,7 @@ struct BucketListView_Previews: PreviewProvider {
         BucketListView(store: .init(
             initialState: .init(authentication: auth),
             reducer: BucketListReducer.init,
-            withDependencies: { $0.b2ApiClient = .liveValue }
-            //            ,
-            //            withDependencies: {
-            //                $0.b2Api = .liveValue
-            //                $0.b2Api.listBuckets = { _ in
-            ////                    try await Task.sleep(for: .seconds(1))
-            //                    return (1...10).map { num in
-            //                            .init(
-            //                                accountId: "\(num))",
-            //                                bucketName: "Bucket \(num)",
-            //                                bucketId: "\(num))",
-            //                                bucketType: "\(num)"
-            //                            )
-            //                    }
-            //                }
-            //            }
+            withDependencies: { $0.b2ApiClient = .previewValue }
         ))
     }
 }
