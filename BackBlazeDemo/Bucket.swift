@@ -9,45 +9,65 @@ struct BucketView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            Form {
-                DisclosureGroup {
-                    Section {
-                        Text(viewStore.bucket.bucketName)
-                    } header: {
-                        Text("Bucket Name")
+            ScrollView {
+                ForEach(viewStore.elements, id: \.self) { element in
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Image(systemName: "doc.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .clipped()
+                            Text(element)
+                            Spacer()
+                            NavigationLinkIcon()
+                        }
+                        Divider()
                     }
-                    Section {
-                        Text(viewStore.bucket.bucketId)
-                    } header: {
-                        Text("Bucket ID")
-                    }
-
-                    Section {
-                        Text(viewStore.bucket.bucketType)
-                    } header: {
-                        Text("Bucket Type")
-                    }
-
-                    Section {
-                        Text(viewStore.bucket.accountId)
-                    } header: {
-                        Text("Account ID")
-                    }
-                } label: {
-                    Text("Metadata")
+                    Spacer()
                 }
-
-                Section {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.secondary)
-                        .frame(width: 200, height: 200)
-                } header: {
-                    Text("ok")
-                }
-
+                .padding([.horizontal])
             }
-            
             .navigationTitle("Bucket")
+            .searchable(text: .constant(""))
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button {
+                            
+                        } label: {
+                            Text("Metadata")
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis.circle")
+                    }
+                }
+                
+                ToolbarItemGroup(placement: .bottomBar) {
+                    HStack {
+                        Label("Recent", systemImage: "clock.fill")
+                            .labelStyle(CustomLabelStyle())
+                            .font(.subheadline)
+                        Spacer()
+                        Label("Shared", systemImage: "folder.fill.badge.person.crop")
+                            .labelStyle(CustomLabelStyle())
+                            .font(.subheadline)
+                        Spacer()
+                        Label("Browse", systemImage: "folder.fill")
+                            .labelStyle(CustomLabelStyle())
+                            .font(.subheadline)
+                        Spacer()
+                        Label("Metadata", systemImage: "info.square.fill")
+                            .labelStyle(CustomLabelStyle())
+                            .font(.subheadline)
+                    }
+                }
+
+                
+//                ToolbarItemGroup(placement: .bottomBar) {
+//                    Text("\(viewStore.elements.count) Files")
+//                }
+            }
         }
     }
 }
@@ -59,6 +79,7 @@ struct BucketReducer: ReducerProtocol {
         
         let id: ID
         var bucket: ListBuckets.Response.Bucket
+        var elements: [String] = (1...50).map({ "File \($0)" })
     }
     
     enum Action: Equatable {
@@ -95,3 +116,12 @@ struct BucketView_Previews: PreviewProvider {
     }
 }
 
+
+struct CustomLabelStyle: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        VStack {
+            configuration.icon
+            configuration.title
+        }
+    }
+}

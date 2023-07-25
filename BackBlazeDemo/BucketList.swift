@@ -19,10 +19,7 @@ struct BucketListView: View {
                                     .frame(alignment: .leading)
                                     .multilineTextAlignment(.leading)
                                 Spacer()
-                                Image(systemName: "chevron.right")
-                                    .font(.some(.footnote))
-                                    .fontWeight(.some(.bold))
-                                    .foregroundColor(.secondary.opacity(0.50))
+                                NavigationLinkIcon()
                             }
                         }
                         .onTapGesture {
