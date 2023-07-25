@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		979F80492A5C270100E3B152 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80482A5C270100E3B152 /* Main.swift */; };
+		979F80492A5C270100E3B152 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80482A5C270100E3B152 /* App.swift */; };
 		979F804D2A5C270400E3B152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804C2A5C270400E3B152 /* Assets.xcassets */; };
 		979F80502A5C270400E3B152 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F804F2A5C270400E3B152 /* Preview Assets.xcassets */; };
 		979F805A2A5C270400E3B152 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979F80592A5C270400E3B152 /* LoginTests.swift */; };
@@ -19,6 +19,21 @@
 		97A4C00D2A6F479400D8F89D /* View+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C00C2A6F479400D8F89D /* View+SwiftUI.swift */; };
 		97BB480B2A696C7900D3BF44 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB480A2A696C7900D3BF44 /* Bucket.swift */; };
 		97F019432A5F08F900264922 /* B2Api in Frameworks */ = {isa = PBXBuildFile; productRef = 97F019422A5F08F900264922 /* B2Api */; };
+		FBB11EE42A7040A4007A8753 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11EE32A7040A4007A8753 /* App.swift */; };
+		FBB11EE62A7040A4007A8753 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11EE52A7040A4007A8753 /* ContentView.swift */; };
+		FBB11EE82A7040A5007A8753 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB11EE72A7040A5007A8753 /* Assets.xcassets */; };
+		FBB11EEB2A7040A5007A8753 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB11EEA2A7040A5007A8753 /* Preview Assets.xcassets */; };
+		FBB11EF62A7040A5007A8753 /* BackblazeDemo_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11EF52A7040A5007A8753 /* BackblazeDemo_macOSTests.swift */; };
+		FBB11F002A7040A5007A8753 /* BackblazeDemo_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11EFF2A7040A5007A8753 /* BackblazeDemo_macOSUITests.swift */; };
+		FBB11F022A7040A5007A8753 /* BackblazeDemo_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11F012A7040A5007A8753 /* BackblazeDemo_macOSUITestsLaunchTests.swift */; };
+		FBB11F0D2A704130007A8753 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B72E2A606A5000328DAF /* Login.swift */; };
+		FBB11F0F2A704167007A8753 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB11F0E2A704167007A8753 /* AppView.swift */; };
+		FBB11F112A7041AA007A8753 /* B2Api in Frameworks */ = {isa = PBXBuildFile; productRef = FBB11F102A7041AA007A8753 /* B2Api */; };
+		FBB11F132A7041B4007A8753 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = FBB11F122A7041B4007A8753 /* ComposableArchitecture */; };
+		FBB11F152A7041B4007A8753 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = FBB11F142A7041B4007A8753 /* Tagged */; };
+		FBB11F162A704261007A8753 /* BucketList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4B7322A606BD400328DAF /* BucketList.swift */; };
+		FBB11F172A704261007A8753 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BB480A2A696C7900D3BF44 /* Bucket.swift */; };
+		FBB11F182A704280007A8753 /* View+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C00C2A6F479400D8F89D /* View+SwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +51,25 @@
 			remoteGlobalIDString = 979F80442A5C270100E3B152;
 			remoteInfo = BackBlazeDemo;
 		};
+		FBB11EF22A7040A5007A8753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 979F803D2A5C270100E3B152 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBB11EE02A7040A4007A8753;
+			remoteInfo = BackblazeDemo_macOS;
+		};
+		FBB11EFC2A7040A5007A8753 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 979F803D2A5C270100E3B152 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBB11EE02A7040A4007A8753;
+			remoteInfo = BackblazeDemo_macOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		979F80452A5C270100E3B152 /* BackBlazeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackBlazeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		979F80482A5C270100E3B152 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		979F80482A5C270100E3B152 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		979F804C2A5C270400E3B152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		979F804F2A5C270400E3B152 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		979F80552A5C270400E3B152 /* BackBlazeDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackBlazeDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +82,18 @@
 		97BB480A2A696C7900D3BF44 /* Bucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket.swift; sourceTree = "<group>"; };
 		97BDB5292A6051DC003D2612 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		97E7A7B72A5F0538004C1FB5 /* B2Api */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = B2Api; sourceTree = "<group>"; };
+		FBB11EE12A7040A4007A8753 /* BackblazeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackblazeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB11EE32A7040A4007A8753 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		FBB11EE52A7040A4007A8753 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FBB11EE72A7040A5007A8753 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FBB11EEA2A7040A5007A8753 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FBB11EEC2A7040A5007A8753 /* BackblazeDemo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BackblazeDemo_macOS.entitlements; sourceTree = "<group>"; };
+		FBB11EF12A7040A5007A8753 /* BackblazeDemo_macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackblazeDemo_macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB11EF52A7040A5007A8753 /* BackblazeDemo_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackblazeDemo_macOSTests.swift; sourceTree = "<group>"; };
+		FBB11EFB2A7040A5007A8753 /* BackblazeDemo_macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackblazeDemo_macOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBB11EFF2A7040A5007A8753 /* BackblazeDemo_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackblazeDemo_macOSUITests.swift; sourceTree = "<group>"; };
+		FBB11F012A7040A5007A8753 /* BackblazeDemo_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackblazeDemo_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FBB11F0E2A704167007A8753 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,15 +121,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBB11EDE2A7040A4007A8753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB11F152A7041B4007A8753 /* Tagged in Frameworks */,
+				FBB11F132A7041B4007A8753 /* ComposableArchitecture in Frameworks */,
+				FBB11F112A7041AA007A8753 /* B2Api in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EEE2A7040A5007A8753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EF82A7040A5007A8753 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		979F803C2A5C270100E3B152 = {
 			isa = PBXGroup;
 			children = (
+				FBB11F0C2A70411C007A8753 /* Shared */,
 				97E7A7B62A5F0538004C1FB5 /* Packages */,
 				979F80472A5C270100E3B152 /* BackBlazeDemo */,
 				979F80582A5C270400E3B152 /* BackBlazeDemoTests */,
+				FBB11EE22A7040A4007A8753 /* BackblazeDemo_macOS */,
+				FBB11EF42A7040A5007A8753 /* BackblazeDemo_macOSTests */,
+				FBB11EFE2A7040A5007A8753 /* BackblazeDemo_macOSUITests */,
 				979F80462A5C270100E3B152 /* Products */,
 				97F019412A5F08F900264922 /* Frameworks */,
 				97A4C00B2A6F0CA400D8F89D /* Recovered References */,
@@ -101,6 +170,9 @@
 				979F80452A5C270100E3B152 /* BackBlazeDemo.app */,
 				979F80552A5C270400E3B152 /* BackBlazeDemoTests.xctest */,
 				979F805F2A5C270400E3B152 /* BackBlazeDemoUITests.xctest */,
+				FBB11EE12A7040A4007A8753 /* BackblazeDemo.app */,
+				FBB11EF12A7040A5007A8753 /* BackblazeDemo_macOSTests.xctest */,
+				FBB11EFB2A7040A5007A8753 /* BackblazeDemo_macOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,14 +180,10 @@
 		979F80472A5C270100E3B152 /* BackBlazeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				979F80482A5C270100E3B152 /* Main.swift */,
+				979F80482A5C270100E3B152 /* App.swift */,
 				97A4B7302A606A5A00328DAF /* AppView.swift */,
-				97A4B72E2A606A5000328DAF /* Login.swift */,
-				97A4B7322A606BD400328DAF /* BucketList.swift */,
-				97BB480A2A696C7900D3BF44 /* Bucket.swift */,
 				979F804C2A5C270400E3B152 /* Assets.xcassets */,
 				979F804E2A5C270400E3B152 /* Preview Content */,
-				97A4C00C2A6F479400D8F89D /* View+SwiftUI.swift */,
 			);
 			path = BackBlazeDemo;
 			sourceTree = "<group>";
@@ -157,6 +225,55 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBB11EE22A7040A4007A8753 /* BackblazeDemo_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				FBB11EE32A7040A4007A8753 /* App.swift */,
+				FBB11F0E2A704167007A8753 /* AppView.swift */,
+				FBB11EE52A7040A4007A8753 /* ContentView.swift */,
+				FBB11EE72A7040A5007A8753 /* Assets.xcassets */,
+				FBB11EEC2A7040A5007A8753 /* BackblazeDemo_macOS.entitlements */,
+				FBB11EE92A7040A5007A8753 /* Preview Content */,
+			);
+			path = BackblazeDemo_macOS;
+			sourceTree = "<group>";
+		};
+		FBB11EE92A7040A5007A8753 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FBB11EEA2A7040A5007A8753 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FBB11EF42A7040A5007A8753 /* BackblazeDemo_macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				FBB11EF52A7040A5007A8753 /* BackblazeDemo_macOSTests.swift */,
+			);
+			path = BackblazeDemo_macOSTests;
+			sourceTree = "<group>";
+		};
+		FBB11EFE2A7040A5007A8753 /* BackblazeDemo_macOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FBB11EFF2A7040A5007A8753 /* BackblazeDemo_macOSUITests.swift */,
+				FBB11F012A7040A5007A8753 /* BackblazeDemo_macOSUITestsLaunchTests.swift */,
+			);
+			path = BackblazeDemo_macOSUITests;
+			sourceTree = "<group>";
+		};
+		FBB11F0C2A70411C007A8753 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				97BB480A2A696C7900D3BF44 /* Bucket.swift */,
+				97A4B7322A606BD400328DAF /* BucketList.swift */,
+				97A4B72E2A606A5000328DAF /* Login.swift */,
+				97A4C00C2A6F479400D8F89D /* View+SwiftUI.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +337,64 @@
 			productReference = 979F805F2A5C270400E3B152 /* BackBlazeDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FBB11EE02A7040A4007A8753 /* BackblazeDemo_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB11F092A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOS" */;
+			buildPhases = (
+				FBB11EDD2A7040A4007A8753 /* Sources */,
+				FBB11EDE2A7040A4007A8753 /* Frameworks */,
+				FBB11EDF2A7040A4007A8753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BackblazeDemo_macOS;
+			packageProductDependencies = (
+				FBB11F102A7041AA007A8753 /* B2Api */,
+				FBB11F122A7041B4007A8753 /* ComposableArchitecture */,
+				FBB11F142A7041B4007A8753 /* Tagged */,
+			);
+			productName = BackblazeDemo_macOS;
+			productReference = FBB11EE12A7040A4007A8753 /* BackblazeDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FBB11EF02A7040A5007A8753 /* BackblazeDemo_macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB11F0A2A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOSTests" */;
+			buildPhases = (
+				FBB11EED2A7040A5007A8753 /* Sources */,
+				FBB11EEE2A7040A5007A8753 /* Frameworks */,
+				FBB11EEF2A7040A5007A8753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBB11EF32A7040A5007A8753 /* PBXTargetDependency */,
+			);
+			name = BackblazeDemo_macOSTests;
+			productName = BackblazeDemo_macOSTests;
+			productReference = FBB11EF12A7040A5007A8753 /* BackblazeDemo_macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FBB11EFA2A7040A5007A8753 /* BackblazeDemo_macOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB11F0B2A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOSUITests" */;
+			buildPhases = (
+				FBB11EF72A7040A5007A8753 /* Sources */,
+				FBB11EF82A7040A5007A8753 /* Frameworks */,
+				FBB11EF92A7040A5007A8753 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FBB11EFD2A7040A5007A8753 /* PBXTargetDependency */,
+			);
+			name = BackblazeDemo_macOSUITests;
+			productName = BackblazeDemo_macOSUITests;
+			productReference = FBB11EFB2A7040A5007A8753 /* BackblazeDemo_macOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,6 +415,17 @@
 					979F805E2A5C270400E3B152 = {
 						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = 979F80442A5C270100E3B152;
+					};
+					FBB11EE02A7040A4007A8753 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					FBB11EF02A7040A5007A8753 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = FBB11EE02A7040A4007A8753;
+					};
+					FBB11EFA2A7040A5007A8753 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = FBB11EE02A7040A4007A8753;
 					};
 				};
 			};
@@ -263,6 +449,9 @@
 				979F80442A5C270100E3B152 /* BackBlazeDemo */,
 				979F80542A5C270400E3B152 /* BackBlazeDemoTests */,
 				979F805E2A5C270400E3B152 /* BackBlazeDemoUITests */,
+				FBB11EE02A7040A4007A8753 /* BackblazeDemo_macOS */,
+				FBB11EF02A7040A5007A8753 /* BackblazeDemo_macOSTests */,
+				FBB11EFA2A7040A5007A8753 /* BackblazeDemo_macOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +480,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBB11EDF2A7040A4007A8753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB11EEB2A7040A5007A8753 /* Preview Assets.xcassets in Resources */,
+				FBB11EE82A7040A5007A8753 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EEF2A7040A5007A8753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EF92A7040A5007A8753 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -301,7 +513,7 @@
 				97A4B7312A606A5A00328DAF /* AppView.swift in Sources */,
 				97A4B72F2A606A5000328DAF /* Login.swift in Sources */,
 				97BB480B2A696C7900D3BF44 /* Bucket.swift in Sources */,
-				979F80492A5C270100E3B152 /* Main.swift in Sources */,
+				979F80492A5C270100E3B152 /* App.swift in Sources */,
 				97A4C00D2A6F479400D8F89D /* View+SwiftUI.swift in Sources */,
 				97A4B7332A606BD400328DAF /* BucketList.swift in Sources */,
 			);
@@ -322,6 +534,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FBB11EDD2A7040A4007A8753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB11F0F2A704167007A8753 /* AppView.swift in Sources */,
+				FBB11F0D2A704130007A8753 /* Login.swift in Sources */,
+				FBB11F162A704261007A8753 /* BucketList.swift in Sources */,
+				FBB11F172A704261007A8753 /* Bucket.swift in Sources */,
+				FBB11EE62A7040A4007A8753 /* ContentView.swift in Sources */,
+				FBB11EE42A7040A4007A8753 /* App.swift in Sources */,
+				FBB11F182A704280007A8753 /* View+SwiftUI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EED2A7040A5007A8753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB11EF62A7040A5007A8753 /* BackblazeDemo_macOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBB11EF72A7040A5007A8753 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBB11F002A7040A5007A8753 /* BackblazeDemo_macOSUITests.swift in Sources */,
+				FBB11F022A7040A5007A8753 /* BackblazeDemo_macOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -334,6 +577,16 @@
 			isa = PBXTargetDependency;
 			target = 979F80442A5C270100E3B152 /* BackBlazeDemo */;
 			targetProxy = 979F80602A5C270400E3B152 /* PBXContainerItemProxy */;
+		};
+		FBB11EF32A7040A5007A8753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBB11EE02A7040A4007A8753 /* BackblazeDemo_macOS */;
+			targetProxy = FBB11EF22A7040A5007A8753 /* PBXContainerItemProxy */;
+		};
+		FBB11EFD2A7040A5007A8753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FBB11EE02A7040A4007A8753 /* BackblazeDemo_macOS */;
+			targetProxy = FBB11EFC2A7040A5007A8753 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -586,6 +839,142 @@
 			};
 			name = Release;
 		};
+		FBB11F032A7040A5007A8753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BackblazeDemo_macOS/BackblazeDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BackblazeDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOS";
+				PRODUCT_NAME = BackblazeDemo;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FBB11F042A7040A5007A8753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BackblazeDemo_macOS/BackblazeDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BackblazeDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOS";
+				PRODUCT_NAME = BackblazeDemo;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FBB11F052A7040A5007A8753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BackblazeDemo_macOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BackblazeDemo_macOS";
+			};
+			name = Debug;
+		};
+		FBB11F062A7040A5007A8753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BackblazeDemo_macOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BackblazeDemo_macOS";
+			};
+			name = Release;
+		};
+		FBB11F072A7040A5007A8753 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BackblazeDemo_macOS;
+			};
+			name = Debug;
+		};
+		FBB11F082A7040A5007A8753 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.id-design.v7.BackblazeDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BackblazeDemo_macOS;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -625,6 +1014,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		FBB11F092A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBB11F032A7040A5007A8753 /* Debug */,
+				FBB11F042A7040A5007A8753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBB11F0A2A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBB11F052A7040A5007A8753 /* Debug */,
+				FBB11F062A7040A5007A8753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBB11F0B2A7040A5007A8753 /* Build configuration list for PBXNativeTarget "BackblazeDemo_macOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBB11F072A7040A5007A8753 /* Debug */,
+				FBB11F082A7040A5007A8753 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -660,6 +1076,20 @@
 		97F019422A5F08F900264922 /* B2Api */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = B2Api;
+		};
+		FBB11F102A7041AA007A8753 /* B2Api */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = B2Api;
+		};
+		FBB11F122A7041B4007A8753 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 979F80742A5C277200E3B152 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		FBB11F142A7041B4007A8753 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 979F80772A5C279D00E3B152 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

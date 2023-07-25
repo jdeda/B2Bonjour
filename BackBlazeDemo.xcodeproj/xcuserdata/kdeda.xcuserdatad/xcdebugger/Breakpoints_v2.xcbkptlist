@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
             endingLineNumber = "165"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
                   uuid = "C1687319-2DB8-4AE0-B2CA-81FD627C487E - 6ce46a2b00fc7508"
@@ -284,84 +284,6 @@
                   startingLineNumber = "36"
                   endingLineNumber = "36"
                   offsetFromSymbolStart = "88">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B2Api/Sources/B2ApiClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "liveValue"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 38386e86545d4464"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
-                  moduleName = "BackBlazeDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "132">
-               </Location>
-               <Location
-                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 23586ac5cfec0d1c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
-                  moduleName = "BackBlazeDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 665d855c8b868862"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
-                  moduleName = "BackBlazeDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  uuid = "FC93A952-D0FF-4BAA-BFA8-311C3A2C5990 - 31a068f02f9aea63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable (B2Api.ListBuckets) async throws -&gt; Swift.Array&lt;B2Api.ListBuckets.Response.Bucket&gt; in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
-                  moduleName = "BackBlazeDemo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kdeda/Development/third-parties/jesse/BackBlazeDemo/B2Api/Sources/B2ApiClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
