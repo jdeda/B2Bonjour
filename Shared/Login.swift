@@ -65,7 +65,7 @@ struct LoginView: View {
                 .disabled(viewStore.loginIsDisabled)
                 .tint(.red)
                 .buttonStyle(.borderedProminent)
-                .buttonBorderShape(.roundedRectangle(radius: 25))
+                // .buttonBorderShape(.roundedRectangle(radius: 25))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .overlay(
                     ProgressView()
