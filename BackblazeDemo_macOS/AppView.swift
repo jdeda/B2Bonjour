@@ -65,17 +65,18 @@ struct AppReducer: ReducerProtocol {
 // MARK: - Preview
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            AppView(store: .init(
-                initialState: .login(.init()),
-                reducer: AppReducer.init,
-                withDependencies: {
-                    $0.b2ApiClient = .liveValue
-                }
-            ))
-        }
-        // TODO: login button doesn't work in previews properly,
-        // which may be because of the preview value or something else
+      Text("12")
+//        NavigationStack {
+//            AppView(store: .init(
+//                initialState: .login(.init()),
+//                reducer: AppReducer.init,
+//                withDependencies: {
+//                    $0.b2ApiClient = .liveValue
+//                }
+//            ))
+//        }
+//        // TODO: login button doesn't work in previews properly,
+//        // which may be because of the preview value or something else
     }
 }
 

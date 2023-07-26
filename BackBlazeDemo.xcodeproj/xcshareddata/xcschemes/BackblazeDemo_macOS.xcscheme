@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FBB11EE02A7040A4007A8753"
-               BuildableName = "BackblazeDemo_macOS.app"
+               BuildableName = "BackblazeDemo.app"
                BlueprintName = "BackblazeDemo_macOS"
                ReferencedContainer = "container:BackBlazeDemo.xcodeproj">
             </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FBB11EE02A7040A4007A8753"
-            BuildableName = "BackblazeDemo_macOS.app"
+            BuildableName = "BackblazeDemo.app"
             BlueprintName = "BackblazeDemo_macOS"
             ReferencedContainer = "container:BackBlazeDemo.xcodeproj">
          </BuildableReference>
@@ -103,7 +103,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FBB11EE02A7040A4007A8753"
-            BuildableName = "BackblazeDemo_macOS.app"
+            BuildableName = "BackblazeDemo.app"
             BlueprintName = "BackblazeDemo_macOS"
             ReferencedContainer = "container:BackBlazeDemo.xcodeproj">
          </BuildableReference>
