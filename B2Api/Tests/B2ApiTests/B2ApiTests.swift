@@ -7,7 +7,7 @@ import XCTest
 @MainActor
 final class B2ApiTests: XCTestCase {
     private static var auth = Authentication.unarchive("authorizeAccount")
-
+    
     var logInit = false
     
     override func setUp() async throws {
@@ -68,7 +68,7 @@ final class B2ApiTests: XCTestCase {
             XCTAssertEqual(buckets.count, 3)
         }
     }
-        
+    
     // TODO: Fix this and make it work!
     /// given an authentication, copy paste this from the app or postman
     /// run the b2ApiClient.listComputers
@@ -108,9 +108,45 @@ final class B2ApiTests: XCTestCase {
             )
             
             Log4swift[Self.self].info("response: \(response)")
-            Self.auth = try response
+            Self.auth = response
         }
     }
+    
+    func testGetUploadFileURL() async throws {
+        _ = try await withDependencies {
+            $0.b2ApiClient = .liveValue
+        } operation: {
+            @Dependency(\.b2ApiClient) var b2ApiClient
+            
+            // Get first bucket id.
+            guard let bucketID = try await b2ApiClient.listBuckets(ListBuckets(auth: Self.auth))
+                .first?.bucketId
+            else {
+                XCTFail("did not get a bucketID when one should have been found")
+                return
+            }
+            
+            
+            let params = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
+            let response = try await b2ApiClient.getUploadURL(params)
+            // TODO: How to assert on this?
+        }
+    }
+    
+//    func testUploadFile() async throws {
+//        _ = try await withDependencies {
+//            $0.b2ApiClient = .liveValue
+//        } operation: {
+//            @Dependency(\.b2ApiClient) var b2ApiClient
+//            
+//            // Wait, shouldn't I create a file???? files r just bytes it doesnt care
+//            // Wait, what type of files can I put??? files r just bytes it doesnt care
+//            // Wait, where does this file even get put? uploadURL
+//            let request = try XCTUnwrap(UploadFile.Request(fileName: "foobar.txt", fileContents: "foobar"))
+//            let response = try await b2ApiClient.uploadFile(.init(auth: Self.auth, request: request))
+//            Log4swift[Self.self].info("testAuthorizeAccount response: \(response)")
+//        }
+//    }
 }
 
 /// What we would like is to request this auth, then use it in every request...

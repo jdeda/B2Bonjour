@@ -7,137 +7,279 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F"
+            uuid = "B6729D18-F594-4DBF-A602-7BE671328FF3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/B2ApiClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "liveValue"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "B6729D18-F594-4DBF-A602-7BE671328FF3 - 8ff458a9658e2a17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #4 @Sendable (B2Api.GetUploadURL) async throws -&gt; B2Api.GetUploadURL.Response in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "134">
+               </Location>
+               <Location
+                  uuid = "B6729D18-F594-4DBF-A602-7BE671328FF3 - 2f3a1f789adef5c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #4 @Sendable (B2Api.GetUploadURL) async throws -&gt; B2Api.GetUploadURL.Response in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  uuid = "B6729D18-F594-4DBF-A602-7BE671328FF3 - 136604cdc3a76e11"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #4 @Sendable (B2Api.GetUploadURL) async throws -&gt; B2Api.GetUploadURL.Response in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "B6729D18-F594-4DBF-A602-7BE671328FF3 - aaa91a3f8c54d012"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for closure #4 @Sendable (B2Api.GetUploadURL) async throws -&gt; B2Api.GetUploadURL.Response in variable initialization expression of static B2Api.B2ApiClient.liveValue : B2Api.B2ApiClient"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/B2ApiClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "119">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFE72987-354A-4988-B102-AA0DF8F83022"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "fetchResponse(_:decoder:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFE72987-354A-4988-B102-AA0DF8F83022 - 61403dd34a237038"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Foundation.URLRequest.fetchResponse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: &#x3c4;_0_0.Type, decoder: Foundation.JSONDecoder) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "EFE72987-354A-4988-B102-AA0DF8F83022 - c5770b6180bd2421"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for Foundation.URLRequest.fetchResponse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: &#x3c4;_0_0.Type, decoder: Foundation.JSONDecoder) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  uuid = "EFE72987-354A-4988-B102-AA0DF8F83022 - 94f4fed420ca343a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Foundation.URLRequest.fetchResponse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: &#x3c4;_0_0.Type, decoder: Foundation.JSONDecoder) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "297">
+               </Location>
+               <Location
+                  uuid = "EFE72987-354A-4988-B102-AA0DF8F83022 - e252de4a93b9563d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Foundation.URLRequest.fetchResponse&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(_: &#x3c4;_0_0.Type, decoder: Foundation.JSONDecoder) async throws -&gt; &#x3c4;_0_0"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D4399F2-9D2E-43BD-9F42-05A0983609C9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/Foundation/URLRequest+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "fetchResponse(_:decoder:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "B2Api/Tests/B2ApiTests/B2ApiTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "testAuthorizeAccount()"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "testGetUploadFileURL()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - f5b31be3d65d013d"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - 4083da6e51617a0a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "275">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "792">
                </Location>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 1282501ec0740ffb"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - 755a79d38f45d9c8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(4) await resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "54">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 65ef2df4644753f"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - 30edf361e1688d25"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(5) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "161">
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "59">
                </Location>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 5e73f9510e40cf3e"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - 30edf361e1688e0c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(5) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "113">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "115">
                </Location>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - f5b31be3d65d011c"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - a337ec55716fc127"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(7) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "275">
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "46">
                </Location>
                <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 1282501ec0740fda"
+                  uuid = "62C81B01-2F1A-4E69-9964-6C1F4DCB2E7A - a337ec55716fc20e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
+                  symbolName = "(7) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testGetUploadFileURL() async throws -&gt; ()"
                   moduleName = "B2ApiTests"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "54">
-               </Location>
-               <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 65ef2df4644751e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
-                  moduleName = "B2ApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "161">
-               </Location>
-               <Location
-                  uuid = "9ABCEB39-DEC1-4D91-9A3D-F300E27B168F - 5e73f9510e40cf1f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #2 () async throws -&gt; () in B2ApiTests.B2ApiTests.testAuthorizeAccount() async throws -&gt; ()"
-                  moduleName = "B2ApiTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/BackBlazeDemo/B2Api/Tests/B2ApiTests/B2ApiTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "113">
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "99">
                </Location>
             </Locations>
          </BreakpointContent>

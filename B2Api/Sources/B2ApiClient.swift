@@ -41,6 +41,9 @@ public struct B2ApiClient {
     public var listBuckets: @Sendable (_ parameter: ListBuckets) async throws -> [ListBuckets.Response.Bucket]
     public var listEntriesInDir: @Sendable (_ parameter: ListEntriesInDir) async throws -> [ListEntriesInDir.Response.File]
     public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
+    public var getUploadURL: @Sendable (_ parameter: GetUploadURL) async throws -> GetUploadURL.Response
+    public var uploadFile: @Sendable (_ parameter: UploadFile) async throws -> UploadFile.Response
+
     
     /**
      cdeda@backblaze.com
@@ -92,6 +95,22 @@ extension B2ApiClient: DependencyKey {
                 throw error
             }
         },
+        getUploadURL: { params in
+            do {
+                return try await params.urlRequest().fetchResponse(GetUploadURL.Response.self)
+            } catch {
+                Log4swift[Self.self].error("error: \(error)")
+                throw error
+            }
+        },
+        uploadFile: { params in
+            do {
+                return try await params.urlRequest().fetchResponse(UploadFile.Response.self)
+            } catch {
+                Log4swift[Self.self].error("error: \(error)")
+                throw error
+            }
+        },
         authorizeAccount: { applicationKeyID, applicationKey in
             do {
                 // MARK: - Valid URL? https://api002.backblazeb2.com
@@ -128,6 +147,22 @@ extension B2ApiClient: TestDependencyKey {
         listComputers: { _ in
             return []
         },
+        getUploadURL: { _ in
+            try await Task.sleep(nanoseconds: NSEC_PER_MSEC * 1500)
+            guard let response =  JSONDecoder().unarchive(GetUploadURL.Response.self, "getUploadURL")
+            else {
+                throw B2ApiError.serverError(ApiError(status: 400, code: "400", message: "Unable to get upload URL"))
+            }
+            return response
+        },
+        uploadFile: { _ in
+            try await Task.sleep(nanoseconds: NSEC_PER_MSEC * 1500)
+            guard let response =  JSONDecoder().unarchive(UploadFile.Response.self, "uploadFile")
+            else {
+                throw B2ApiError.serverError(ApiError(status: 400, code: "400", message: "Unable to upload file"))
+            }
+            return response
+        },
         authorizeAccount: { _, _ in
             Authentication.unarchive("authorizeAccount")
         }
@@ -138,6 +173,8 @@ extension B2ApiClient: TestDependencyKey {
         listBuckets: XCTUnimplemented("\(Self.self).listBuckets"),
         listEntriesInDir: XCTUnimplemented("\(Self.self).listEntriesInDir"),
         listComputers: XCTUnimplemented("\(Self.self).listComputers"),
+        getUploadURL: XCTUnimplemented("\(Self.self).getUploadURL"),
+        uploadFile: XCTUnimplemented("\(Self.self).uploadFile"),
         authorizeAccount: XCTUnimplemented("\(Self.self).authorizeAccount")
     )
 }

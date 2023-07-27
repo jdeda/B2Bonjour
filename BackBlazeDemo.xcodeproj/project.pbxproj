@@ -268,9 +268,9 @@
 		FBB11F0C2A70411C007A8753 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				97BB480A2A696C7900D3BF44 /* Bucket.swift */,
-				97A4B7322A606BD400328DAF /* BucketList.swift */,
 				97A4B72E2A606A5000328DAF /* Login.swift */,
+				97A4B7322A606BD400328DAF /* BucketList.swift */,
+				97BB480A2A696C7900D3BF44 /* Bucket.swift */,
 				97A4C00C2A6F479400D8F89D /* View+SwiftUI.swift */,
 			);
 			path = Shared;

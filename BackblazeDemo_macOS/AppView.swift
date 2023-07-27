@@ -70,7 +70,7 @@ struct AppView_Previews: PreviewProvider {
                 initialState: .login(.init()),
                 reducer: AppReducer.init,
                 withDependencies: {
-                    $0.b2ApiClient = .liveValue
+                    $0.b2ApiClient = .previewValue
                 }
             ))
         }
