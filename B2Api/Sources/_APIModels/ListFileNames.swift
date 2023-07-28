@@ -14,17 +14,31 @@ import Foundation
 public struct ListFileNames {
     public struct Request: Codable {
         public var bucketId: String
-        public var startFileName: String = ""
-        public var maxFileCount: String = ""
-        public var prefix: String = ""
-        public var delimiter: String = ""
+        public var startFileName: String
+        public var maxFileCount: String
+        public var prefix: String
+        public var delimiter: String
+        
+        public init(
+            bucketId: String,
+            startFileName: String = "",
+            maxFileCount: String = "",
+            prefix: String = "",
+            delimiter: String = ""
+        ) {
+            self.bucketId = bucketId
+            self.startFileName = startFileName
+            self.maxFileCount = maxFileCount
+            self.prefix = prefix
+            self.delimiter = delimiter
+        }
     }
     
-    public struct Response: Codable {
+    public struct Response: Codable, Equatable {
         public let files: [File]
         public let nextFileName: String?
         
-        public struct File: Codable {
+        public struct File: Codable, Equatable {
             public let accountId: String
             public let action: String
             public let bucketId: String
@@ -39,6 +53,11 @@ public struct ListFileNames {
     
     public let auth: Authentication
     public let request: Request
+    
+    public init(auth: Authentication, request: Request) {
+        self.auth = auth
+        self.request = request
+    }
 }
 
 extension ListFileNames: APIModel {

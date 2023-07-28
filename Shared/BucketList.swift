@@ -50,7 +50,7 @@ struct BucketListView: View {
 // MARK: - Reducer
 struct BucketListReducer: ReducerProtocol {
     struct State: Equatable {
-        var authentication: Authentication
+        var auth: Authentication
         var buckets: [ListBuckets.Response.Bucket] = []
         
         @PresentationState var destination: DestinationReducer.State?
@@ -71,7 +71,7 @@ struct BucketListReducer: ReducerProtocol {
             switch action {
             case .onAppear:
                 guard state.buckets.isEmpty else { return .none }
-                let request = ListBuckets(auth: state.authentication)
+                let request = ListBuckets(auth: state.auth)
                 return .task {
                     await .listBucketsDidEnd(TaskResult {
                         try await b2ApiClient.listBuckets(request)
@@ -90,7 +90,8 @@ struct BucketListReducer: ReducerProtocol {
             case let .rowTapped(bucket):
                 state.destination = .bucket(.init(
                     id: .init(rawValue: uuid()),
-                    bucket: bucket
+                    bucket: bucket,
+                    auth: state.auth
                 ))
                 return .none
                 
@@ -133,7 +134,7 @@ struct BucketListView_Previews: PreviewProvider {
     
     static var previews: some View {
         BucketListView(store: .init(
-            initialState: .init(authentication: auth),
+            initialState: .init(auth: auth),
             reducer: BucketListReducer.init,
             withDependencies: { $0.b2ApiClient = .previewValue }
         ))

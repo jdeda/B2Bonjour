@@ -53,11 +53,14 @@ struct BucketView: View {
                     }
                 }
             }
+            .task {
+                await viewStore.send(.task).finish()
+            }
         }
     }
 }
 
-struct MetaDataView: View {
+private struct MetaDataView: View {
     let bucket: ListBuckets.Response.Bucket
     var body: some View {
         ScrollView {
@@ -102,7 +105,11 @@ struct MetaDataView: View {
 
 struct MetaDataView_Previews: PreviewProvider {
     static var previews: some View {
-        MetaDataView(bucket: .init(accountId: "039240128u43012m0d19d01dm", bucketName: "foobar-A0B1-C2D3-E4F5-OPQRSTUVWXYZ", bucketId: "20192IUIMXAJSNKDJANS", bucketType: "foobaristic"))
+        MetaDataView(bucket: .init(
+            accountId: "039240128u43012m0d19d01dm",
+            bucketName: "foobar-A0B1-C2D3-E4F5-OPQRSTUVWXYZ",
+            bucketId: "20192IUIMXAJSNKDJANS", bucketType: "foobaristic"
+        ))
     }
 }
 
@@ -139,42 +146,37 @@ struct BucketReducer: ReducerProtocol {
         
         let id: ID
         var bucket: ListBuckets.Response.Bucket
-        var elements: [String] = (1...50).map({ "File \($0)" })
+        var fileNames: [String] = []
+        var auth: Authentication
     }
     
     enum Action: Equatable {
-        
+        case task
+        case listFileNamesDidEnd(TaskResult<ListFileNames.Response>)
+
     }
     
+    @Dependency(\.b2ApiClient) var b2ApiClient
     var body: some ReducerProtocolOf<Self> {
         Reduce { state, action in
             switch action {
+            case .task:
+                return .task { [bucketId = state.bucket.bucketId, auth = state.auth] in
+                    await .listFileNamesDidEnd(TaskResult {
+                        let params = ListFileNames(auth: auth, request: .init(bucketId: bucketId))
+                        return try await b2ApiClient.listFileNames(params)
+                    })
+                }
+            case let .listFileNamesDidEnd(.success(response)):
+                state.fileNames = response.files.map(\.fileName)
+                return .none
                 
+            case let .listFileNamesDidEnd(.failure(error)):
+                return .none
             }
         }
     }
 }
-
-// MARK: - Preview
-struct BucketView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            BucketView(store: .init(
-                initialState: .init(
-                    id: .init(),
-                    bucket: .init(
-                        accountId: "123",
-                        bucketName:"foo",
-                        bucketId: "123foo",
-                        bucketType: "footype"
-                    )
-                ),
-                reducer: BucketReducer.init
-            ))
-        }
-    }
-}
-
 
 fileprivate struct CustomLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -185,21 +187,30 @@ fileprivate struct CustomLabelStyle: LabelStyle {
     }
 }
 
-fileprivate extension View {
-    @ViewBuilder
-    func searchable(
-        if condition: Bool,
-        text: Binding<String>,
-        placement: SearchFieldPlacement = .automatic,
-        prompt: String = ""
-    ) -> some View {
-        if condition {
-            self.searchable(
-                text: text,
-                placement: placement,
-                prompt: prompt)
-        } else {
-            self
+// MARK: - Preview
+struct BucketView_Previews: PreviewProvider {
+    static let auth = Authentication(
+        apiUrl : URL(string: "https://api005.backblazeb2.com")!,
+        accountId : "7bc15b3584db",
+        authToken : "4_0057bc15b3584db0000000001_01adc197_04b9bd_acct_HX4yoUGNMV1oQ_d9rk4tqk9xL5w="
+    )
+    
+    static var previews: some View {
+        
+        NavigationStack {
+            BucketView(store: .init(
+                initialState: .init(
+                    id: .init(),
+                    bucket: .init(
+                        accountId: "123",
+                        bucketName:"foo",
+                        bucketId: "123foo",
+                        bucketType: "footype"
+                    ),
+                    auth: auth
+                ),
+                reducer: BucketReducer.init
+            ))
         }
     }
 }

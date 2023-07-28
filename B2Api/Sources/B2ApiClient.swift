@@ -98,7 +98,8 @@ extension B2ApiClient: DependencyKey {
         },
         getUploadURL: { params in
             do {
-                return try await params.urlRequest().fetchResponse(GetUploadURL.Response.self)
+                let response = try await params.urlRequest().fetchResponse(GetUploadURL.Response.self)
+                return JSONEncoder().archive(response, "getUploadURL")
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -106,7 +107,8 @@ extension B2ApiClient: DependencyKey {
         },
         uploadFile: { params in
             do {
-                return try await params.urlRequest().fetchResponse(UploadFile.Response.self)
+                let response = try await params.urlRequest().fetchResponse(UploadFile.Response.self)
+                return JSONEncoder().archive(response, "uploadFile")
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error
@@ -114,7 +116,8 @@ extension B2ApiClient: DependencyKey {
         },
         listFileNames: { params in
             do {
-                return try await params.urlRequest().fetchResponse(ListFileNames.Response.self)
+                let response = try await params.urlRequest().fetchResponse(ListFileNames.Response.self)
+                return JSONEncoder().archive(response, "listFileNames")
             } catch {
                 Log4swift[Self.self].error("error: \(error)")
                 throw error

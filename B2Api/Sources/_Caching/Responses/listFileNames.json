@@ -1,0 +1,31 @@
+{
+  "files" : [
+    {
+      "action" : "upload",
+      "accountId" : "7bc15b3584db",
+      "contentLength" : 8,
+      "bucketId" : "677b7c81c5fb33f588940d1b",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "Test 123",
+      "contentSha1" : "b097de000afc78f54027410d88e4532ac7a0efb0"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "7bc15b3584db",
+      "contentLength" : 8,
+      "bucketId" : "677b7c81c5fb33f588940d1b",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "Test_123",
+      "contentSha1" : "529faba7483e6058ca97924706cbd0d26880bc7a"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "7bc15b3584db",
+      "contentLength" : 5,
+      "bucketId" : "677b7c81c5fb33f588940d1b",
+      "contentType" : "text\/plain",
+      "fileName" : "foo.txt",
+      "contentSha1" : "d465e627f9946f2fa0d2dc0fc04e5385bc6cd46d"
+    }
+  ]
+}
