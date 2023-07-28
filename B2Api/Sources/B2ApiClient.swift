@@ -43,6 +43,7 @@ public struct B2ApiClient {
     public var listComputers: @Sendable (_ parameter: ListComputers) async throws -> [ListComputers.Response.Computer]
     public var getUploadURL: @Sendable (_ parameter: GetUploadURL) async throws -> GetUploadURL.Response
     public var uploadFile: @Sendable (_ parameter: UploadFile) async throws -> UploadFile.Response
+    public var listFileNames: @Sendable (_ parameter: ListFileNames) async throws -> ListFileNames.Response
 
     
     /**
@@ -111,6 +112,14 @@ extension B2ApiClient: DependencyKey {
                 throw error
             }
         },
+        listFileNames: { params in
+            do {
+                return try await params.urlRequest().fetchResponse(ListFileNames.Response.self)
+            } catch {
+                Log4swift[Self.self].error("error: \(error)")
+                throw error
+            }
+        },
         authorizeAccount: { applicationKeyID, applicationKey in
             do {
                 // MARK: - Valid URL? https://api002.backblazeb2.com
@@ -163,6 +172,14 @@ extension B2ApiClient: TestDependencyKey {
             }
             return response
         },
+        listFileNames: { _ in
+            try await Task.sleep(nanoseconds: NSEC_PER_MSEC * 1500)
+            guard let response =  JSONDecoder().unarchive(ListFileNames.Response.self, "listFileNames")
+            else {
+                throw B2ApiError.serverError(ApiError(status: 400, code: "400", message: "Unable to list file names"))
+            }
+            return response
+        },
         authorizeAccount: { _, _ in
             Authentication.unarchive("authorizeAccount")
         }
@@ -175,6 +192,7 @@ extension B2ApiClient: TestDependencyKey {
         listComputers: XCTUnimplemented("\(Self.self).listComputers"),
         getUploadURL: XCTUnimplemented("\(Self.self).getUploadURL"),
         uploadFile: XCTUnimplemented("\(Self.self).uploadFile"),
+        listFileNames: XCTUnimplemented("\(Self.self).listFileNames"),
         authorizeAccount: XCTUnimplemented("\(Self.self).authorizeAccount")
     )
 }

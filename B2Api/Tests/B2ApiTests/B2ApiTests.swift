@@ -5,6 +5,8 @@ import XCTest
 @testable import B2Api
 
 // allows us to test as a particular backblaze user
+// MARK: This will intefere with asserts because each user may have different
+// buckets and different content in each bucket there should be a shared bucket or account.
 enum User {
     case kdeda
     case jdeda
@@ -20,8 +22,10 @@ enum User {
 @MainActor
 final class B2ApiTests: XCTestCase {
     private static var auth = Authentication.unarchive("authorizeAccount")
-    private static var user: User = .kdeda
+    private static var user: User = .jdeda
     var logInit = false
+    
+    enum TestError: Error { case failure(String) }
     
     override func setUp() async throws {
         guard !logInit
@@ -209,6 +213,28 @@ final class B2ApiTests: XCTestCase {
             Log4swift[Self.self].info("response: \(response)")
         }
     }
+    
+    func testListFileNames() async throws {
+        _ = try await withDependencies {
+            $0.b2ApiClient = .liveValue
+        } operation: {
+            @Dependency(\.b2ApiClient) var b2ApiClient
+            
+            let bucketID: String = try await {
+                let param = ListBuckets(auth: Self.auth)
+                guard let bucketID = try await b2ApiClient.listBuckets(param).first?.bucketId
+                else {
+                    throw TestError.failure("did not get a bucketID when one should have been found")
+                }
+                return bucketID
+            }()
+            
+            let params = ListFileNames(auth: Self.auth, request: .init(bucketId: bucketID))
+            let response = try await b2ApiClient.listFileNames(params)
+            Log4swift[Self.self].info("bucketID: \(bucketID)")
+        }
+    }
+    
 }
 
 /// What we would like is to request this auth, then use it in every request...

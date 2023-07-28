@@ -3,4 +3,181 @@
    uuid = "3604E98D-E38B-4A52-9171-42F038E3B7AA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B41A6AC-9766-4E9C-95BE-11FB89510217"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/_APIModels/ListFileNames.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "urlRequest()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4B41A6AC-9766-4E9C-95BE-11FB89510217 - cb2246537865dbae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "B2Api.ListFileNames.urlRequest() throws -&gt; Foundation.URLRequest"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/_APIModels/ListFileNames.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "692">
+               </Location>
+               <Location
+                  uuid = "4B41A6AC-9766-4E9C-95BE-11FB89510217 - cb2246537865dbae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "B2Api.ListFileNames.urlRequest() throws -&gt; Foundation.URLRequest"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/_APIModels/ListFileNames.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "1531">
+               </Location>
+               <Location
+                  uuid = "4B41A6AC-9766-4E9C-95BE-11FB89510217 - cb2246537865db13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "B2Api.ListFileNames.urlRequest() throws -&gt; Foundation.URLRequest"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/_APIModels/ListFileNames.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1531">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B21AAFDA-4D58-4B88-9DA2-ED2E97606AE6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/Foundation/URL+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "appending(queryItems:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22E05D2F-F63B-4D3C-BD49-7C5983D3109D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/Foundation/URL+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "appending(queryItems:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "22E05D2F-F63B-4D3C-BD49-7C5983D3109D - 6f85732ab33cbabf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Foundation.URL.appending(queryItems: Swift.Array&lt;Foundation.URLQueryItem&gt;) -&gt; Foundation.URL"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URL+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "877">
+               </Location>
+               <Location
+                  uuid = "22E05D2F-F63B-4D3C-BD49-7C5983D3109D - 10cfffb1bf085841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URLQueryItem) -&gt; Swift.Bool in Foundation.URL.appending(queryItems: Swift.Array&lt;Foundation.URLQueryItem&gt;) -&gt; Foundation.URL"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URL+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "239">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2A3EF5D0-578D-43FF-B92A-B425ED464FEC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B2Api/Sources/Foundation/URL+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "appending(queryItems:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2A3EF5D0-578D-43FF-B92A-B425ED464FEC - 10cfffb1bf085841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URLQueryItem) -&gt; Swift.Bool in Foundation.URL.appending(queryItems: Swift.Array&lt;Foundation.URLQueryItem&gt;) -&gt; Foundation.URL"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URL+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "239">
+               </Location>
+               <Location
+                  uuid = "2A3EF5D0-578D-43FF-B92A-B425ED464FEC - 10cfffb1bf085841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URLQueryItem) -&gt; Swift.Bool in Foundation.URL.appending(queryItems: Swift.Array&lt;Foundation.URLQueryItem&gt;) -&gt; Foundation.URL"
+                  moduleName = "B2ApiTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jessededa/Developement/Swift/03_Apps_TCA/B2Bojour/B2Bonjour/B2Api/Sources/Foundation/URL+Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "310">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
