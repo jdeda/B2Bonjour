@@ -4,10 +4,23 @@ import Log4swift
 import XCTest
 @testable import B2Api
 
+// allows us to test as a particular backblaze user
+enum User {
+    case kdeda
+    case jdeda
+
+    var bucketName: String {
+        switch self {
+        case .kdeda: return "deda-inc"
+        case .jdeda: return "BackBlazeDemoBucket-f61febdb-cd17-45df-9685-a7c399150052"
+        }
+    }
+}
+
 @MainActor
 final class B2ApiTests: XCTestCase {
     private static var auth = Authentication.unarchive("authorizeAccount")
-    
+    private static var user: User = .kdeda
     var logInit = false
     
     override func setUp() async throws {
@@ -101,14 +114,32 @@ final class B2ApiTests: XCTestCase {
             $0.b2ApiClient = .liveValue
         } operation: {
             @Dependency(\.b2ApiClient) var b2ApiClient
-            
-            let response = try await b2ApiClient.authorizeAccount(
-                "0057bc15b3584db0000000001",
-                "K005EueuAu9rB/CATltSWhBVJfuKT5A"
-            )
-            
-            Log4swift[Self.self].info("response: \(response)")
-            Self.auth = response
+
+            func response_1() async throws -> Authentication {
+                //  cdeda@backblaze.com
+                //  July 17, 1023
+                //  002d365fdf3dfcc0000000001
+                //  keyName: BackBlazeDemo
+                //  applicationKey: K0025cy1RjM8KO8OmbKPOV2mc9cqQnI
+
+                try await b2ApiClient.authorizeAccount(
+                    "002d365fdf3dfcc0000000001",
+                    "K0025cy1RjM8KO8OmbKPOV2mc9cqQnI"
+                )
+            }
+
+            func response_2() async throws -> Authentication {
+                // Jesse Deda
+                try await b2ApiClient.authorizeAccount(
+                    "0057bc15b3584db0000000001",
+                    "K005EueuAu9rB/CATltSWhBVJfuKT5A"
+                )
+            }
+
+            let authentication = try await Self.user == .kdeda ? response_1() : response_2()
+            Self.auth = Authentication.unarchive("authorizeAccount")
+            Log4swift[Self.self].info("Self.auth: \(Self.auth)")
+            // Self.auth = response_1
         }
     }
     
@@ -126,11 +157,22 @@ final class B2ApiTests: XCTestCase {
                 return
             }
             
-            
-            let params = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
-            let response = try await b2ApiClient.getUploadURL(params)
-            
-            Log4swift[Self.self].info("response: \(response)")
+            let response1: GetUploadURL.Response = try await {
+                let params = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
+                let response = try await b2ApiClient.getUploadURL(params)
+
+                return response
+            }()
+            Log4swift[Self.self].info("response: \(response1)")
+
+            let response2: GetUploadURL.Response = try await {
+                let params = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
+                let response = try await b2ApiClient.getUploadURL(params)
+
+                return response
+            }()
+            Log4swift[Self.self].info("response: \(response2)")
+
             // TODO: How to assert on this?
         }
     }
@@ -142,21 +184,29 @@ final class B2ApiTests: XCTestCase {
             @Dependency(\.b2ApiClient) var b2ApiClient
             
             // Get first bucket id.
-            guard let bucketID = try await b2ApiClient.listBuckets(ListBuckets(auth: Self.auth)).first?.bucketId
+            let bucketName = Self.user.bucketName
+            let buckets = try await b2ApiClient.listBuckets(ListBuckets(auth: Self.auth))
+            guard let bucketID = buckets.first(where: { $0.bucketName == bucketName })?.bucketId
             else {
                 XCTFail("did not get a bucketID when one should have been found")
                 return
             }
             
             // Get the upload URL
-            let getUploadURLParams = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
-            let getUploadURLResponse = try await b2ApiClient.getUploadURL(getUploadURLParams)
-            
-            // Make the upload file request.
-            let uploadRequest = try XCTUnwrap(UploadFile.Request(fileName: "foo.txt", fileContents: "foo"))
-            
+            let uploadURL: GetUploadURL.Response = try await {
+                let params = GetUploadURL(auth: Self.auth, request: GetUploadURL.Request(bucketId: bucketID))
+                let response = try await b2ApiClient.getUploadURL(params)
+
+                return response
+            }()
+
             // Attempt to upload the file.
-            let response = try await b2ApiClient.uploadFile(.init(auth: Self.auth, request: uploadRequest, getUploadURLResponse: getUploadURLResponse))
+            let fileName = "Test 123"
+            let fileData = fileName.data(using: .utf8) ?? Data()
+            let params = UploadFile(authorizationToken: uploadURL.authorizationToken, uploadURL: uploadURL.uploadUrl, fileName: fileName, fileData: fileData)
+            let response = try await b2ApiClient.uploadFile(params)
+
+            Log4swift[Self.self].info("response: \(response)")
         }
     }
 }

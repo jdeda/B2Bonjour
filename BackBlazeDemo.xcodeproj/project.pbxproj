@@ -151,8 +151,8 @@
 		979F803C2A5C270100E3B152 = {
 			isa = PBXGroup;
 			children = (
+				97E7A7B72A5F0538004C1FB5 /* B2Api */,
 				FBB11F0C2A70411C007A8753 /* Shared */,
-				97E7A7B62A5F0538004C1FB5 /* Packages */,
 				979F80472A5C270100E3B152 /* BackBlazeDemo */,
 				979F80582A5C270400E3B152 /* BackBlazeDemoTests */,
 				FBB11EE22A7040A4007A8753 /* BackblazeDemo_macOS */,
@@ -210,14 +210,6 @@
 				97BDB5292A6051DC003D2612 /* Dependencies.swift */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		97E7A7B62A5F0538004C1FB5 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				97E7A7B72A5F0538004C1FB5 /* B2Api */,
-			);
-			name = Packages;
 			sourceTree = "<group>";
 		};
 		97F019412A5F08F900264922 /* Frameworks */ = {

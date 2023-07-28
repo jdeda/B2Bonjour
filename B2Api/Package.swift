@@ -30,7 +30,7 @@ let package = Package(
             ],
             path: "Sources",
             resources: [
-                .copy("_Caches")
+                .copy("_Caching/Responses")
             ]
         ),
         .testTarget(

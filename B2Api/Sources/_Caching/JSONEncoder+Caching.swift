@@ -13,7 +13,8 @@ extension URL {
         URL.init(fileURLWithPath: #file)
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-            .appendingPathComponent("_Caches")
+            .appendingPathComponent("_Caching")
+            .appendingPathComponent("Responses")
             .appendingPathComponent(apiName)
             .appendingPathExtension("json")
     }

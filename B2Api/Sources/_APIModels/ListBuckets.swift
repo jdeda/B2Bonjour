@@ -21,6 +21,8 @@ public struct ListBuckets {
         /**
          This is the object we really care.
          */
+        // TODO: kdeda
+        // please add the rest of the attributes here
         public struct Bucket: Codable, Equatable {
             public let accountId: String
             public let bucketName: String

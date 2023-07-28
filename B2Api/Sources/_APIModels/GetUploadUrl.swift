@@ -13,7 +13,6 @@ public struct GetUploadURL {
     
     public let auth: Authentication
     public let request: Request
-    
 }
 
 extension GetUploadURL: APIModel {
