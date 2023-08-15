@@ -10,21 +10,7 @@ struct BucketView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             TabView {
-                BucketFilesView(files: (1...10).map { "File No.\($0)" })
-                    .tabItem {
-                        Label("Recent", systemImage: "clock.fill")
-                            .labelStyle(CustomLabelStyle())
-                            .font(.subheadline)
-                    }
-                
-                BucketFilesView(files: (1...5).map { "File No.\($0)" })
-                    .tabItem {
-                        Label("Shared", systemImage: "folder.fill.badge.person.crop")
-                            .labelStyle(CustomLabelStyle())
-                            .font(.subheadline)
-                    }
-                
-                BucketFilesView(files: (1...50).map { "File No.\($0)" })
+                BucketFilesView(files: viewStore.fileNames)
                     .tabItem {
                         Label("Browse", systemImage: "folder.fill")
                             .labelStyle(CustomLabelStyle())
@@ -41,21 +27,134 @@ struct BucketView: View {
             .navigationTitle("Bucket")
             .searchable(text: .constant(""))
             .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Menu {
-                        Button {
-                            
-                        } label: {
-                            Label("Upload Image", systemImage: "camera.fill")
-                        }
+                Menu {
+                    Button {
+                        viewStore.send(.uploadFileButtonTapped)
                     } label: {
-                        Image(systemName: "ellipsis.circle")
+                        Label("Upload File", systemImage: "file")
                     }
+                } label: {
+                    Image(systemName: "ellipsis.circle")
                 }
             }
+            .fileImporter(
+                isPresented: viewStore.binding(
+                    get: \.fileImporterIsPresented,
+                    send: { .setFileImporterIsPresented($0) }
+                ),
+                allowedContentTypes: [.image],
+                allowsMultipleSelection: true,
+                onCompletion: {
+                    viewStore.send(.fileImporterItemsSelected(.init($0)))
+                }
+            )
             .task {
                 await viewStore.send(.task).finish()
             }
+        }
+    }
+}
+
+// MARK: - Reducer
+struct BucketReducer: ReducerProtocol {
+    struct State: Equatable, Identifiable {
+        typealias ID = Tagged<Self, UUID>
+        
+        let id: ID
+        var bucket: ListBuckets.Response.Bucket
+        var fileNames: [String] = []
+        var auth: Authentication
+        var fileImporterIsPresented: Bool = false
+    }
+    
+    enum MyError: Equatable, Error {
+        case failure
+    }
+    
+    enum Action: Equatable {
+        case task
+        case listFileNamesDidEnd(TaskResult<ListFileNames.Response>)
+        case uploadFileButtonTapped
+        case setFileImporterIsPresented(Bool)
+        case fileImporterItemsSelected(TaskResult<[URL]>)
+
+    }
+    
+    @Dependency(\.b2ApiClient) var b2ApiClient
+    
+    var body: some ReducerProtocolOf<Self> {
+        Reduce { state, action in
+            switch action {
+            case .task:
+                return .task { [bucketId = state.bucket.bucketId, auth = state.auth] in
+                    await .listFileNamesDidEnd(TaskResult {
+                        let params = ListFileNames(auth: auth, request: .init(bucketId: bucketId))
+                        return try await b2ApiClient.listFileNames(params)
+                    })
+                }
+            case let .listFileNamesDidEnd(.success(response)):
+                state.fileNames = response.files.map(\.fileName)
+                return .none
+                
+            case let .listFileNamesDidEnd(.failure(error)):
+                return .none
+                
+            case .uploadFileButtonTapped:
+                state.fileImporterIsPresented = true
+                return .none
+                
+            case let .setFileImporterIsPresented(value):
+                state.fileImporterIsPresented = value
+                return .none
+                
+            case let .fileImporterItemsSelected(.success(urls)):
+                return .run { [auth = state.auth, bucketId = state.bucket.bucketId] send in
+                    let getUploadURL = try await b2ApiClient.getUploadURL(.init(
+                        auth: auth,
+                        request: .init(bucketId: bucketId)
+                    ))
+                    for url in urls {
+                        let data = try Data(contentsOf: url, options: .uncached)
+                        _ = try await b2ApiClient.uploadFile(.init(
+                            authorizationToken: getUploadURL.authorizationToken,
+                            uploadURL: getUploadURL.uploadUrl,
+                            fileName: url.lastPathComponent,
+                            fileData: data
+                        ))
+                    }
+                }
+                // TODO: ... convert these URLs to data then upload them the server...
+                return .none
+                
+            case let .fileImporterItemsSelected(.failure(error)):
+                // TODO: Put an alert...
+                return .none
+            }
+        }
+    }
+}
+
+private struct BucketFilesView: View {
+    let files: [String]
+    
+    var body: some View {
+        ScrollView {
+            ForEach(files, id: \.self) { element in
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "doc.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .clipped()
+                        Text(element)
+                        Spacer()
+                    }
+                    Divider()
+                }
+                Spacer()
+            }
+            .padding([.horizontal])
         }
     }
 }
@@ -74,8 +173,8 @@ private struct MetaDataView: View {
                 Divider()
             }
             .padding([.horizontal, .vertical])
-
-
+            
+            
             VStack(alignment: .leading) {
                 Text("Bucket ID")
                     .font(.subheadline)
@@ -84,10 +183,10 @@ private struct MetaDataView: View {
                     .padding(.bottom, 1)
                 Text(bucket.bucketId)
                 Divider()
-
+                
             }
             .padding([.horizontal, .vertical])
-
+            
             VStack(alignment: .leading) {
                 Text("Bucket Type")
                     .font(.subheadline)
@@ -96,84 +195,9 @@ private struct MetaDataView: View {
                     .padding(.bottom, 1)
                 Text(bucket.bucketType)
                 Divider()
-
+                
             }
             .padding([.horizontal, .vertical])
-        }
-    }
-}
-
-struct MetaDataView_Previews: PreviewProvider {
-    static var previews: some View {
-        MetaDataView(bucket: .init(
-            accountId: "039240128u43012m0d19d01dm",
-            bucketName: "foobar-A0B1-C2D3-E4F5-OPQRSTUVWXYZ",
-            bucketId: "20192IUIMXAJSNKDJANS", bucketType: "foobaristic"
-        ))
-    }
-}
-
-struct BucketFilesView: View {
-    let files: [String]
-    
-    var body: some View {
-        ScrollView {
-            ForEach(files, id: \.self) { element in
-                VStack(alignment: .leading) {
-                    HStack {
-                        Image(systemName: "doc.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
-                            .clipped()
-                        Text(element)
-                        Spacer()
-//                        NavigationLinkIcon()
-                    }
-                    Divider()
-                }
-                Spacer()
-            }
-            .padding([.horizontal])
-        }
-    }
-}
-
-// MARK: - Reducer
-struct BucketReducer: ReducerProtocol {
-    struct State: Equatable, Identifiable {
-        typealias ID = Tagged<Self, UUID>
-        
-        let id: ID
-        var bucket: ListBuckets.Response.Bucket
-        var fileNames: [String] = []
-        var auth: Authentication
-    }
-    
-    enum Action: Equatable {
-        case task
-        case listFileNamesDidEnd(TaskResult<ListFileNames.Response>)
-
-    }
-    
-    @Dependency(\.b2ApiClient) var b2ApiClient
-    var body: some ReducerProtocolOf<Self> {
-        Reduce { state, action in
-            switch action {
-            case .task:
-                return .task { [bucketId = state.bucket.bucketId, auth = state.auth] in
-                    await .listFileNamesDidEnd(TaskResult {
-                        let params = ListFileNames(auth: auth, request: .init(bucketId: bucketId))
-                        return try await b2ApiClient.listFileNames(params)
-                    })
-                }
-            case let .listFileNamesDidEnd(.success(response)):
-                state.fileNames = response.files.map(\.fileName)
-                return .none
-                
-            case let .listFileNamesDidEnd(.failure(error)):
-                return .none
-            }
         }
     }
 }
@@ -196,7 +220,6 @@ struct BucketView_Previews: PreviewProvider {
     )
     
     static var previews: some View {
-        
         NavigationStack {
             BucketView(store: .init(
                 initialState: .init(
@@ -214,3 +237,4 @@ struct BucketView_Previews: PreviewProvider {
         }
     }
 }
+

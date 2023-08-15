@@ -45,7 +45,7 @@ struct AppReducer: ReducerProtocol {
                     return .none
                     
                 case let .loginSuccessfull(value):
-                    state = .bucketList(.init(authentication: value))
+                    state = .bucketList(.init(auth: value))
                     return .none
                 }
                 

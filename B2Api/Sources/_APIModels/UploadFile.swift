@@ -17,10 +17,17 @@ public struct UploadFile {
     }
 
     /// The token must have the `writeFiles` capability.
-    let authorizationToken: String
-    let uploadURL: URL
-    let fileName: String
-    let fileData: Data
+    public let authorizationToken: String
+    public let uploadURL: URL
+    public let fileName: String
+    public let fileData: Data
+    
+    public init(authorizationToken: String, uploadURL: URL, fileName: String, fileData: Data) {
+        self.authorizationToken = authorizationToken
+        self.uploadURL = uploadURL
+        self.fileName = fileName
+        self.fileData = fileData
+    }
 
     var contentSha1: String {
         let digest = Insecure.SHA1.hash(data: fileData)

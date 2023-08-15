@@ -2,30 +2,102 @@
   "files" : [
     {
       "action" : "upload",
-      "accountId" : "7bc15b3584db",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 4190,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "text\/plain",
+      "fileName" : "ACA-2020-DEDA.txt",
+      "contentSha1" : "d30252f5828cf91a350b42cdc346c9cf2bb02a09"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 0,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "text\/plain",
+      "fileName" : "Demo\/.bzEmpty",
+      "contentSha1" : "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 13,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "Demo\/Test 123",
+      "contentSha1" : "e45f2cc40d0ad80ffa9fc8f678fba7cd11f3788c"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 17,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "DemoTest\/Test 123",
+      "contentSha1" : "0aa3a476d482aa8122ed8967edee657ab3c0033f"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 3940,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "Locale.swift",
+      "contentSha1" : "5ad5458c8de15b9c3620cebc3f6dcc29afbee80c"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 60430,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "image\/png",
+      "fileName" : "Screen Shot 2022-08-15 at 2.33.58 PM.png",
+      "contentSha1" : "29b4ce1975b02791f422d01266bc0779174c8b4c"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
       "contentLength" : 8,
-      "bucketId" : "677b7c81c5fb33f588940d1b",
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
       "contentType" : "application\/octet-stream",
       "fileName" : "Test 123",
       "contentSha1" : "b097de000afc78f54027410d88e4532ac7a0efb0"
     },
     {
       "action" : "upload",
-      "accountId" : "7bc15b3584db",
-      "contentLength" : 8,
-      "bucketId" : "677b7c81c5fb33f588940d1b",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 59392,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
       "contentType" : "application\/octet-stream",
-      "fileName" : "Test_123",
-      "contentSha1" : "529faba7483e6058ca97924706cbd0d26880bc7a"
+      "fileName" : "Thumbs.db",
+      "contentSha1" : "882351023dbb316f1b203b7621db6c9b7a61f17b"
     },
     {
       "action" : "upload",
-      "accountId" : "7bc15b3584db",
-      "contentLength" : 5,
-      "bucketId" : "677b7c81c5fb33f588940d1b",
-      "contentType" : "text\/plain",
-      "fileName" : "foo.txt",
-      "contentSha1" : "d465e627f9946f2fa0d2dc0fc04e5385bc6cd46d"
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 35769,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "image\/png",
+      "fileName" : "cheftime_logo_00.png",
+      "contentSha1" : "f991d9abf183d86e1b6b3865400e7c5b8a17bf0a"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 35769,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "application\/octet-stream",
+      "fileName" : "cheftime_logo_00.pngpng",
+      "contentSha1" : "f991d9abf183d86e1b6b3865400e7c5b8a17bf0a"
+    },
+    {
+      "action" : "upload",
+      "accountId" : "d365fdf3dfcc",
+      "contentLength" : 2070336,
+      "bucketId" : "0d53e6254f5dff638d2f0c1c",
+      "contentType" : "application\/zip",
+      "fileName" : "loadsoffiles.zip",
+      "contentSha1" : "440e6e917f814d45a2033595aac63bd1b4bf3d07"
     }
   ]
 }

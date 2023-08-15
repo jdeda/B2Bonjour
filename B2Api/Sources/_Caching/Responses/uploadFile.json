@@ -1,11 +1,11 @@
 {
-  "fileId" : "4_z677b7c81c5fb33f588940d1b_f41453d55ff671034_d20230728_m191131_c005_v0501008_t0043_u01690571491412",
-  "accountId" : "7bc15b3584db",
-  "contentLength" : 8,
-  "bucketId" : "677b7c81c5fb33f588940d1b",
-  "contentType" : "application\/octet-stream",
+  "fileId" : "4_z0d53e6254f5dff638d2f0c1c_f10046805ddd5359c_d20230815_m163157_c002_v0001119_t0010_u01692117117550",
+  "accountId" : "d365fdf3dfcc",
+  "contentLength" : 35769,
+  "bucketId" : "0d53e6254f5dff638d2f0c1c",
+  "contentType" : "image\/png",
   "action" : "upload",
-  "contentSha1" : "b097de000afc78f54027410d88e4532ac7a0efb0",
-  "fileName" : "Test 123",
-  "uploadTimestamp" : 1690571491412
+  "contentSha1" : "f991d9abf183d86e1b6b3865400e7c5b8a17bf0a",
+  "fileName" : "cheftime_logo_00.png",
+  "uploadTimestamp" : 1692117117550
 }

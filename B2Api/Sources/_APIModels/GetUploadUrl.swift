@@ -3,6 +3,10 @@ import Foundation
 public struct GetUploadURL {
     public struct Request: Codable {
         public var bucketId: String
+        
+        public init(bucketId: String) {
+            self.bucketId = bucketId
+        }
     }
     
     public struct Response: Codable {
@@ -13,6 +17,11 @@ public struct GetUploadURL {
     
     public let auth: Authentication
     public let request: Request
+    
+    public init(auth: Authentication, request: Request) {
+        self.auth = auth
+        self.request = request
+    }
 }
 
 extension GetUploadURL: APIModel {
